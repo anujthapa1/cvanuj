@@ -197,3 +197,9 @@
           </div>
         </div>
       </section>
+        <li>
+                  <a href="#portfolio">Gallery</a>
+                </li>
+                <li>
+                  <a href="#blog">Blog</a>
+                </li>
