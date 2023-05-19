@@ -312,7 +312,7 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 contact-form">
                     <div class="widget">
-                      <form method="post" id="contactform" onsubmit="sendEmail">
+                      <form method="post" id="contactform" onsubmit="sendEmail(); reset(); return false;">
                         <div class="input-style">
                           <div>
                             <input class="form-control" type="text" id="name" name="name" placeholder="Name">
@@ -335,15 +335,17 @@
                   <script>
                     function sendEmail(){
                     Email.send({
-                     Host : "smtp.elasticemail.com",
-                     Username : "username",
-                      Password : "password",
-                      To : 'them@website.com',
-                        From : "you@isp.com",
-                       Subject : "This is the subject",
-                         Body : "And this is the body"
+                     Host : "smtp.gmail.com",
+                     Username : "thapapabitranuj@gmail.com",
+                      Password : "Rhea#90111",
+                      To : 'thapapabitraanuj@gmail.com',
+                        From : document.getElementById("email").value,
+                       Subject : "new contact form",
+                         Body :"Name: " + document. getElementById( "name") . value
+                          + "<br> Email:" + document. getElementById("email"). value
+                            +"<br> Message: " + document .getElementBvId("message") .value"
                           }).then(
-                           message => alert(message)
+                           message => alert(DONE EMAIL SENT )
                             );
                               }
                   </script>
