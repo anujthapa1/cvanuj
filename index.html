@@ -312,7 +312,7 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 contact-form">
                     <div class="widget">
-                      <form method="post" id="contactform">
+                      <form method="post" id="contactform" onsubmit="sendEmail">
                         <div class="input-style">
                           <div>
                             <input class="form-control" type="text" id="name" name="name" placeholder="Name">
@@ -332,6 +332,21 @@
                       </form>
                     </div>
                   </div>
+                  <script>
+                    function sendEmail(){
+                    Email.send({
+                     Host : "smtp.elasticemail.com",
+                     Username : "username",
+                      Password : "password",
+                      To : 'them@website.com',
+                        From : "you@isp.com",
+                       Subject : "This is the subject",
+                         Body : "And this is the body"
+                          }).then(
+                           message => alert(message)
+                            );
+                              }
+                  </script>
                   <div class="col-xs-12 col-sm-6 contact-info">
                     <div class="widget">
                       <ul>
@@ -384,7 +399,7 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/theme-plugins.min.js"></script>
     <script src="js/scripts.min.js"></script>
-    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </body>
 </html>
 </html> 
