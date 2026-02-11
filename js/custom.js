@@ -1,5 +1,7 @@
-$(document).ready(function() {
-    console.log("Custom script loaded");
+console.log("Custom script loaded top level");
+
+(function($) {
+    console.log("Custom script running");
 
     // Preloader fallback
     setTimeout(function() {
@@ -24,6 +26,7 @@ $(document).ready(function() {
     let currentLang = localStorage.getItem('language') || 'en';
 
     function updateLanguage(lang) {
+        console.log("Updating language to " + lang);
         document.querySelectorAll('[data-en]').forEach(el => {
             if (lang === 'ne') {
                 el.innerHTML = el.getAttribute('data-ne');
@@ -56,7 +59,6 @@ $(document).ready(function() {
         updateGreeting();
         startTyping();
 
-        // Refresh AOS to handle new content size
         if (typeof AOS !== 'undefined') AOS.refresh();
     }
 
@@ -148,6 +150,7 @@ $(document).ready(function() {
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
+            console.log("Theme toggle clicked");
             body.classList.toggle('dark-mode');
             const icon = themeToggle.querySelector('i');
             if (body.classList.contains('dark-mode')) {
@@ -196,4 +199,4 @@ $(document).ready(function() {
 
     // Initial state
     updateLanguage(currentLang);
-});
+})(jQuery);
