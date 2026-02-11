@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Anuj Thapa - Civil Engineer & Developer Portfolio">
+    <meta name="keywords" content="Anuj Thapa, Civil Engineer, Portfolio, Resume">
+    <meta name="author" content="Anuj Thapa">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title> MY CV</title>
+    <title>Anuj Thapa | Portfolio</title>
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/owl.carousel.css" rel="stylesheet">
@@ -17,12 +17,24 @@
     <link href="css/preloader.min.css" rel="stylesheet">
     <link href="css/styles.min.css" rel="stylesheet">
     <link href="css/responsive.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,700italic' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <!-- Theme and Language Toggles -->
+    <div class="theme-language-toggle">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i class="fa fa-moon-o"></i>
+        </button>
+        <button id="lang-toggle" class="theme-toggle-btn" title="Switch Language">
+            <span id="lang-text">EN</span>
+        </button>
+    </div>
+
     <div class="preloader">
       <span class="loader">
         <span class="loader-inner"></span>
@@ -35,38 +47,18 @@
     </div>
     <div class="fixed-right-socials">
       <ul class="list-unstiled">
-        <li>
-          <a href="https://www.facebook.com/profile.php?id=100075320037820">
-            <i class="fa fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/anujthapa444/">
-            <i class="fa fa-instagram"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.pinterest.com/thapapabitraanuj/">
-            <i class="fa fa-pintrest"></i>
-          </a>
-        </li>
+        <li><a href="https://www.facebook.com/profile.php?id=100075320037820"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://www.instagram.com/anujthapa444/"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.pinterest.com/thapapabitraanuj/"><i class="fa fa-pinterest"></i></a></li>
       </ul>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-2 sidebar">
           <div class="col-sm-2 sidebarWrapper">
-            <img class="user-pic" src="images/avatar.jpg" alt="">
+            <img class="user-pic" src="images/avatar.jpg" alt="Anuj Thapa">
             <div class="signature">
               <img class="img-responsive" alt="signature" src="images/signature.png">
             </div>
@@ -75,27 +67,13 @@
                 <span class="lines"></span>
               </div>
               <ul class="nav">
-                <li class="active">
-                  <a href="#about">About me</a>
-                </li>
-                <li>
-                  <a href="#services">Services</a>
-                </li>
-                <li>
-                  <a href="#portfolio">Gallery</a>
-                </li>
-                <li>
-                  <a href="#resume">Resume</a>
-                </li>
-                <li>
-                  <a href="#blog">Blog</a>
-                </li>
-                <li>
-                  <a href="#testimonial">Testimonial</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
+                <li class="active"><a href="#about" data-en="About me" data-ne="मेरो बारेमा">About me</a></li>
+                <li><a href="#services" data-en="Services" data-ne="सेवाहरू">Services</a></li>
+                <li><a href="#portfolio" data-en="Gallery" data-ne="ग्यालेरी">Gallery</a></li>
+                <li><a href="#resume" data-en="Resume" data-ne="बायोडाटा">Resume</a></li>
+                <li><a href="#blog" data-en="Blog" data-ne="ब्लग">Blog</a></li>
+                <li><a href="#testimonial" data-en="Testimonial" data-ne="प्रशंसा">Testimonial</a></li>
+                <li><a href="#contact" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -107,59 +85,36 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 aboutWrapper">
                 <div class="nav-extra hidden-xs">
-                  <a data-target="#callmeModal" data-toggle="modal" href="tel:+9779865117237" class="btn btn-default">
-                    <span aria-hidden="true" class="icon_phone"></span>
-                  </a>
-                  <a href="mailto:thapapabitraanuj@gmail.com" class="btn btn-info">Hire me now</a>
+                  <a href="tel:+9779865117237" class="btn btn-default"><span aria-hidden="true" class="icon_phone"></span></a>
+                  <a href="mailto:thapapabitraanuj@gmail.com" class="btn btn-info" data-en="Hire me now" data-ne="मलाई काम दिनुहोस्">Hire me now</a>
                 </div>
                 <div class="section-title">
-                  <h2>
-                    <span>01</span>About me
-                  </h2>
+                  <h2><span>01</span><span data-en="About me" data-ne="मेरो बारेमा">About me</span></h2>
                 </div>
-                <h1>Hello, I am <strong>Anuj Thapa</strong>
-                </h1>
-                <p>As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field. Though I have no professional experience in civil engineering, my education has prepared me to be a quick learner and a collaborative team member. I am excited to apply my computer skills, such as proficiency in CAD software and data analysis tools, to assist in solving complex problems and implementing innovative solutions in the industry.</p>
+                <h1 data-en="Hello, I am <strong>Anuj Thapa</strong>" data-ne="नमस्ते, म <strong>अनुज थापा</strong> हुँ">Hello, I am <strong>Anuj Thapa</strong></h1>
+                <h3 style="margin-top: 0;"><span data-en="I'm a" data-ne="म एक">I'm a</span> <span id="typed-text" style="color: #9c27b0; font-weight: 600;"></span><span class="typed-cursor">|</span></h3>
+                <p data-en="As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field."
+                   data-ne="सिभिल इन्जिनियरिङमा भर्खरै स्नातक गरेको र कम्प्युटर सीपमा बलियो पृष्ठभूमि भएकोले, म मेरो प्राविधिक ज्ञान र रचनात्मकतालाई यस क्षेत्रमा योगदान दिन उत्सुक छु।">
+                   As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field.</p>
                 <div class="skills">
                   <div class="section-title">
-                    <h2>
-                      <span>02</span>Skills
-                    </h2>
+                    <h2><span>02</span><span data-en="Skills" data-ne="सीपहरू">Skills</span></h2>
                   </div>
-                  <div class="skill-outer">
-                    <h4>HTML5 &amp; CSS3 <span>80%</span>
-                    </h4>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                    </div>
+                  <div class="skill-outer" data-aos="fade-right">
+                    <h4>HTML5 & CSS3 <span>80%</span></h4>
+                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 80%;"></div></div>
                   </div>
-                  <div class="skill-outer">
-                    <h4>JavaScript <span>30%</span>
-                    </h4>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                    </div>
+                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="100">
+                    <h4>JavaScript <span>30%</span></h4>
+                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 30%;"></div></div>
                   </div>
-                  <div class="skill-outer">
-                    <h4>Photography <span>85%</span>
-                    </h4>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
-                    </div>
+                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="200">
+                    <h4>Photography <span>85%</span></h4>
+                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 85%;"></div></div>
                   </div>
-                  <div class="skill-outer">
-                    <h4>AUTO CAD <span>50%</span>
-                    </h4>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-                    </div>
-                  </div>
-                  <div class="skill-outer">
-                    <h4>Video Editing <span>85%</span>
-                    </h4>
-                    <div class="progress progress-striped active">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
-                    </div>
+                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="300">
+                    <h4>AUTO CAD <span>50%</span></h4>
+                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 50%;"></div></div>
                   </div>
                 </div>
               </div>
@@ -173,45 +128,38 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 servicesWrapper">
                 <div class="section-title">
-                  <h2>
-                    <span>03</span>Services
-                  </h2>
+                  <h2><span>03</span><span data-en="Services" data-ne="सेवाहरू">Services</span></h2>
                 </div>
-                <div class="service-box">
-                  <div>
-                    <i class="icon icon_globe"></i>
-                  </div>
-                  <div>
-                    <h3>Web Development</h3>
-                  </div>
-                </div>
-                <div class="service-box">
-                  <div>
-                    <i class="icon icon_pens"></i>
-                  </div>
-                  <div>
-                    <h3>AUTO CAD Design</h3>
-                  </div>
-                </div>
-                <div class="service-box">
-                  <div>
-                    <i class="icon icon_easel"></i>
-                  </div>
-                  <div>
-                    <h3>Online Marketing</h3>
-                  </div>
-                </div>
-                <div class="service-box">
-                  <div>
-                    <i class="icon icon_globe-2"></i>
-                  </div>
-                  <div>
-                    <h3>SEO Optimization</h3>
-                  </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="service-box" data-aos="zoom-in">
+                          <i class="icon icon_globe"></i>
+                          <h3 data-en="Web Development" data-ne="वेब विकास">Web Development</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
+                          <i class="icon icon_pens"></i>
+                          <h3 data-en="AUTO CAD Design" data-ne="अटो क्याड डिजाइन">AUTO CAD Design</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
+                          <i class="icon icon_easel"></i>
+                          <h3 data-en="Online Marketing" data-ne="अनलाइन मार्केटिङ">Online Marketing</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
+                          <i class="icon icon_globe-2"></i>
+                          <h3 data-en="SEO Optimization" data-ne="एसईओ अप्टिमाइजेसन">SEO Optimization</h3>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </section>
       <section id="portfolio">
         <div class="portfolio-background">
@@ -219,137 +167,31 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 portfolioWrapper">
                 <div class="section-title">
-                  <h2 class="pull-left">
-                    <span>04</span>Gallery
-                  </h2>
+                  <h2 class="pull-left"><span>04</span><span data-en="Gallery" data-ne="ग्यालेरी">Gallery</span></h2>
                   <div class="portfolio-filter pull-right">
                     <ul>
-                      <li class="btn btn-default filter active" data-filter="all">Show All</li>
-                      <li class="btn btn-default filter" data-filter=".category-1">Branding</li>
-                      <li class="btn btn-default filter" data-filter=".category-2">Websites</li>
+                      <li class="btn btn-default filter active" data-filter="all" data-en="Show All" data-ne="सबै देखाउनुहोस्">Show All</li>
+                      <li class="btn btn-default filter" data-filter=".category-1" data-en="Branding" data-ne="ब्रान्डिङ">Branding</li>
+                      <li class="btn btn-default filter" data-filter=".category-2" data-en="Websites" data-ne="वेबसाइटहरू">Websites</li>
                     </ul>
                   </div>
                 </div>
                 <div class="row">
                   <div id="mix-container">
-                    <div class="col-xs-12 col-sm-4 mix category-1">
+                    <div class="col-xs-12 col-sm-4 mix category-1" data-aos="flip-left">
                       <div class="imageWrapper">
                         <a class="lightbox" href="#popup-1">
                           <img src="images/portfolio-1.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Branding</span>
-                            </div>
-                          </div>
+                          <div class="imageHover"><div><h3>Project Title</h3><span>Branding</span></div></div>
                         </a>
-                        <div id="popup-1" class="mfp-hide popup-box">
-                          <img src="images/portfolio-1.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 mix category-2">
+                    <div class="col-xs-12 col-sm-4 mix category-2" data-aos="flip-left" data-aos-delay="100">
                       <div class="imageWrapper">
                         <a class="lightbox" href="#popup-2">
                           <img src="images/portfolio-2.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Websites</span>
-                            </div>
-                          </div>
+                          <div class="imageHover"><div><h3>Project Title</h3><span>Websites</span></div></div>
                         </a>
-                        <div id="popup-2" class="mfp-hide popup-box">
-                          <img src="images/portfolio-2.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 mix category-1">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-3">
-                          <img src="images/portfolio-3.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Branding</span>
-                            </div>
-                          </div>
-                        </a>
-                        <div id="popup-3" class="mfp-hide popup-box">
-                          <img src="images/portfolio-3.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 mix category-2">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-4">
-                          <img src="images/portfolio-4.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Websites</span>
-                            </div>
-                          </div>
-                        </a>
-                        <div id="popup-4" class="mfp-hide popup-box">
-                          <img src="images/portfolio-4.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 mix category-2">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-5">
-                          <img src="images/portfolio-5.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Websites</span>
-                            </div>
-                          </div>
-                        </a>
-                        <div id="popup-5" class="mfp-hide popup-box">
-                          <img src="images/portfolio-5.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 mix category-1">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-6">
-                          <img src="images/portfolio-6.jpg" alt="">
-                          <div class="imageHover">
-                            <div>
-                              <h3>Project Title</h3>
-                              <span>Branding</span>
-                            </div>
-                          </div>
-                        </a>
-                        <div id="popup-6" class="mfp-hide popup-box">
-                          <img src="images/portfolio-6.jpg" alt="">
-                          <div>
-                            <h3>Project Title</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -365,39 +207,21 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 resumeWrapper">
                 <div class="section-title">
-                  <h2>
-                    <span>05</span>Resume
-                  </h2>
+                  <h2><span>05</span><span data-en="Resume" data-ne="बायोडाटा">Resume</span></h2>
                 </div>
-                <div class="resume-box">
-                  <div>
-                    <i class="icon_contacts_alt"></i>
-                  </div>
-                  <div>
-                    <h3>Pokhara University</h3>
-                    <span>2022 - Present</span>
-                    <p> I am in Pokhara University for Bachelor Degree of subject Civil Engineering. </p>
-                  </div>
+                <div class="resume-box" data-aos="fade-up">
+                  <i class="icon_contacts_alt"></i>
+                  <h3 data-en="Pokhara University" data-ne="पोखरा विश्वविद्यालय">Pokhara University</h3>
+                  <span>2022 - Present</span>
+                  <p data-en="I am in Pokhara University for Bachelor Degree of subject Civil Engineering."
+                     data-ne="म पोखरा विश्वविद्यालयमा सिभिल इन्जिनियरिङमा स्नातक तहमा अध्ययनरत छु।">I am in Pokhara University for Bachelor Degree of subject Civil Engineering.</p>
                 </div>
-                <div class="resume-box">
-                  <div>
-                    <i class="icon_contacts_alt"></i>
-                  </div>
-                  <div>
-                    <h3>Plus 2 (10+2)</h3>
-                    <span>2020 - 2022</span>
-                    <p> I completed my 10+2 from Kathmandu Model Secondary School with 3.03 grade. KMSS is located at Kathmandu,Nepal at Bagbazar. My Subjects were: COM ENGLISH, COM NEPALI, OPT MATHEMATICS, OPT PHYSICS, OPT CHEMISTRY, OPT COMPUTER.My Examination Board was National Examination Board(NEB). </p>
-                  </div>
-                </div>
-                <div class="resume-box">
-                  <div>
-                    <i class="icon_contacts_alt"></i>
-                  </div>
-                  <div>
-                    <h3>Class 10</h3>
-                    <span>2010 - 2020</span>
-                    <p> I completed my class 10 from Pragati English Boarding School with 3.35 grade. PEBS is located at Kathmandu,Nepal at Bagbazar. My Subjects were: COM ENGLISH, COM NEPALI, COM MATHEMATICS, COM SCIENCE, OPT MATHEMATICS, COM COMPUTER. My Examination Board was National Examination Board(NEB). </p>
-                  </div>
+                <div class="resume-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="icon_contacts_alt"></i>
+                  <h3 data-en="Plus 2 (10+2)" data-ne="प्लस २ (१०+२)">Plus 2 (10+2)</h3>
+                  <span>2020 - 2022</span>
+                  <p data-en="I completed my 10+2 from Kathmandu Model Secondary School with 3.03 grade."
+                     data-ne="मैले काठमाडौं मोडल सेकेन्डरी स्कूलबाट ३.०३ ग्रेडका साथ १०+२ उत्तीर्ण गरें।">I completed my 10+2 from Kathmandu Model Secondary School with 3.03 grade.</p>
                 </div>
               </div>
             </div>
@@ -410,45 +234,15 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 blogWrapper">
                 <div class="section-title">
-                  <h2>
-                    <span>06</span>Blog Posts
-                  </h2>
+                  <h2><span>06</span><span data-en="Blog Posts" data-ne="ब्लग पोस्टहरू">Blog Posts</span></h2>
                 </div>
-                <div class="blog-post row">
+                <div class="blog-post row" data-aos="fade-up">
                   <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-1.jpg" alt="">
-                      <span class="card-title post-ver-date">
-                        <span class="icon_calendar" aria-hidden="true"></span> February 15, 2016 </span>
-                    </div>
+                    <div class="blog-img"><img src="images/blog-img-1.jpg" alt=""></div>
                     <div class="blog-dis">
-                      <h3>Blog Post with Image</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      <a class="btn btn-default">Read More</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-2.jpg" alt="">
-                      <span class="card-title post-ver-date">
-                        <span class="icon_calendar" aria-hidden="true"></span> February 15, 2016 </span>
-                    </div>
-                    <div class="blog-dis">
-                      <h3>Standart Blog Post</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      <a class="btn btn-default">Read More</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-3.jpg" alt="">
-                      <span class="card-title post-ver-date">
-                        <span class="icon_calendar" aria-hidden="true"></span> February 15, 2016 </span>
-                    </div>
-                    <div class="blog-dis">
-                      <h3>Blog Post with Image</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      <a class="btn btn-default">Read More</a>
+                      <h3 data-en="Blog Post with Image" data-ne="छविको साथ ब्लग पोस्ट">Blog Post with Image</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <a class="btn btn-default" data-en="Read More" data-ne="थप पढ्नुहोस्">Read More</a>
                     </div>
                   </div>
                 </div>
@@ -463,46 +257,30 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 testimonialWrapper">
                 <div class="section-title">
-                  <h2>
-                    <span>07</span>Family member
-                  </h2>
+                  <h2><span>07</span><span data-en="Family member" data-ne="परिवारका सदस्यहरू">Family member</span></h2>
                 </div>
-                <div class="testimonial-box">
+                <div class="testimonial-box" data-aos="fade-in">
                   <div id="testimonialSlider" class="owl-carousel">
                     <div class="testimonial">
-                      <div class="testimonial_content">
-                        <div class="testimonial_content_inner">
-                          <p> I am a nursing graduate with a Bachelor's degree and currently working in the emergency department of a hospital, where I use my skills to provide essential care and support to patients in critical situations.</p>
-                        </div>
-                      </div>
+                      <div class="testimonial_content"><div class="testimonial_content_inner">
+                        <p data-en="I am a nursing graduate with a Bachelor's degree and currently working in the emergency department."
+                           data-ne="म नर्सिङ स्नातक हुँ र हाल अस्पतालको आकस्मिक विभागमा कार्यरत छु।">I am a nursing graduate with a Bachelor's degree and currently working in the emergency department.</p>
+                      </div></div>
                       <div class="testimonial_author clearfix">
                         <img alt="" src="images/client-1.jpg" class="testimonial_photo">
                         <h3 class="testimonial_name">Anuj thapa</h3>
-                        <div class="testimonial_position">Sister (Nurse)</div>
+                        <div class="testimonial_position" data-en="Sister (Nurse)" data-ne="बहिनी (नर्स)">Sister (Nurse)</div>
                       </div>
                     </div>
                     <div class="testimonial">
-                      <div class="testimonial_content">
-                        <div class="testimonial_content_inner">
-                          <p>I am a high school graduate who has chosen to be a homemaker, supporting my family by taking care of the household and occasionally assisting my husband with his work. I enjoy spending time with my family and contributing to their well-being in any way I can. </p>
-                        </div>
-                      </div>
+                      <div class="testimonial_content"><div class="testimonial_content_inner">
+                        <p data-en="I am a high school graduate who has chosen to be a homemaker, supporting my family."
+                           data-ne="म एक उच्च माध्यमिक विद्यालय स्नातक हुँ जसले गृहिणी बन्ने छनौट गरेको छ।">I am a high school graduate who has chosen to be a homemaker, supporting my family.</p>
+                      </div></div>
                       <div class="testimonial_author clearfix">
                         <img alt="" src="images/client-2.jpg" class="testimonial_photo">
                         <h3 class="testimonial_name">Durga Kumari Chetrri Thapa</h3>
-                        <div class="testimonial_position">Mother (House wife)</div>
-                      </div>
-                    </div>
-                    <div class="testimonial">
-                      <div class="testimonial_content">
-                        <div class="testimonial_content_inner">
-                          <p> I am  a successful businessperson who completed high school and enjoys playing football as a hobby. I  balance my  professional and personal life effectively to achieve your goals.</p>
-                        </div>
-                      </div>
-                      <div class="testimonial_author clearfix">
-                        <img alt="" src="images/client-3.jpg" class="testimonial_photo">
-                        <h3 class="testimonial_name">Ganesh Bahadur Thapa</h3>
-                        <div class="testimonial_position">Father (Businessman)</div>
+                        <div class="testimonial_position" data-en="Mother (House wife)" data-ne="आमा (गृहिणी)">Mother (House wife)</div>
                       </div>
                     </div>
                   </div>
@@ -518,74 +296,43 @@
             <div class="row">
               <div class="col-xs-12 col-sm-9 col-sm-offset-3 contactWrapper">
                 <div class="section-title">
-                  <h2>
-                    <span>08</span>Get In Touch
-                  </h2>
+                  <h2><span>08</span><span data-en="Get In Touch" data-ne="सम्पर्कमा रहनुहोस्">Get In Touch</span></h2>
                 </div>
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6 contact-form">
-                    <div class="widget">
-                      <form method="post" id="contactform">
-                        <div class="input-style">
-                          <div>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name">
-                          </div>
-                          <div>
-                            <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail">
-                          </div>
-                        </div>
-                        <div class="text-style">
-                          <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
-                        </div>
-                        <input type="submit" id="submit" class="btn btn-info" name="submit" value="Send Message">
-                        <div class="submit-result">
-                          <p id="success">Your Message has been sent!</p>
-                          <p id="error">Something went wrong, go back and try again!</p>
-                        </div>
-                      </form>
-                    </div>
+                  <div class="col-xs-12 col-sm-6 contact-form" data-aos="fade-right">
+                    <form method="post" id="contactform">
+                      <div class="input-style">
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Name">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail">
+                      </div>
+                      <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                      <input type="submit" id="submit" class="btn btn-info" name="submit" value="Send Message">
+                    </form>
                   </div>
-                  <div class="col-xs-12 col-sm-6 contact-info">
+                  <div class="col-xs-12 col-sm-6 contact-info" data-aos="fade-left">
                     <div class="widget">
                       <ul>
-                        <li>
-                          <h3>
-                            <span class="icon_pin" aria-hidden="true"></span> Address
-                          </h3>
-                          <p>Pokhara -16 , Kaski , Nepal</p>
-                        </li>
-                        <li>
-                          <h3>
-                            <span class="icon_phone" aria-hidden="true"></span> Phone
-                          </h3>
-                          <p>+(977) 9865117231</p>
-                        </li>
-                        <li>
-                          <h3>
-                            <span class="icon_mail" aria-hidden="true"></span> Email
-                          </h3>
-                          <p>thapapabitraanuj@gmail.com</p>
-                        </li>
+                        <li><h3><span class="icon_pin"></span> <span data-en="Address" data-ne="ठेगाना">Address</span></h3>
+                        <p data-en="Pokhara -16 , Kaski , Nepal" data-ne="पोखरा -१६, कास्की, नेपाल">Pokhara -16 , Kaski , Nepal</p></li>
+                        <li><h3><span class="icon_phone"></span> <span data-en="Phone" data-ne="फोन">Phone</span></h3>
+                        <p>+(977) 9865117231</p></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                < <div class="google-maps">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14058.952910010568!2d83.98064!3d28.245624!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1682588085899!5m2!1sen!2snp" width="600px" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
         </div>
+      </section>
     </div>
-    </section>
     <footer class="copyright">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-9 col-sm-offset-3 footer-background">
             <div class="row">
-              <div class="col-sm-6 text-left"> Copyright &copy; 2023 Anuj Thapa. All Right Reserved </div>
-              <div class="col-sm-6 text-right"> Designed With <i class="fa fa-heart-o red"></i> By <a target="_blank" href="https://www.facebook.com/profile.php?id=100075320037820">Anuj Thapa</a>
-              </div>
+              <div class="col-sm-6 text-left"> Copyright &copy; 2023 Anuj Thapa. </div>
+              <div class="col-sm-6 text-right" data-en="Designed With <i class='fa fa-heart-o red'></i> By Anuj Thapa" data-ne="अनुज थापा द्वारा <i class='fa fa-heart-o red'></i> का साथ डिजाइन गरिएको">Designed With <i class="fa fa-heart-o red"></i> By Anuj Thapa</div>
             </div>
           </div>
         </div>
@@ -597,5 +344,8 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/theme-plugins.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/custom.js"></script>
+    <div id="back-to-top" title="Back to Top"><i class="fa fa-chevron-up"></i></div>
   </body>
-</html> $(document).ready(function)(){ $('.btn btn-default filter').click(function){ const value = $(this).attr('data_filter'); if(value == 'all'){ $('.mix-container').show('1000'); } else{ $('.mix-container').not('.'+value).hide('1000'); } } }
+</html>
