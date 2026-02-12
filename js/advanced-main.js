@@ -269,9 +269,7 @@ $(document).ready(function () {
     return new Date(utc + (3600000 * 5.75));
   }
 
-<<<<<<< HEAD
 
-=======
   function updateThemeByTime() {
     // Only auto-switch if user hasn't manually toggled (optional, but good UX)
     // For this request, we'll enforce it on load or loop, but let's respect manual toggle if we want.
@@ -301,7 +299,6 @@ $(document).ready(function () {
 
   // Call immediately
   updateThemeByTime();
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 
   if ($('#particles-js').length) {
     const nepalTime = getNepalTime();
@@ -574,7 +571,6 @@ $(document).ready(function () {
     });
   });
 
-<<<<<<< HEAD
   /* -----------------------------------
      13. Interactive Memory Game
   ----------------------------------- */
@@ -711,6 +707,4 @@ $(document).ready(function () {
     });
   }
 
-=======
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 });
