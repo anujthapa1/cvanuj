@@ -1,395 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Anuj Thapa - Civil Engineer & Developer Portfolio">
-    <meta name="keywords" content="Anuj Thapa, Civil Engineer, Portfolio, Resume">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anuj Thapa - BSc (Hons) Computing Student & Developer Portfolio">
+    <meta name="keywords" content="Anuj Thapa, Computing Student, Portfolio, Developer, Informatics College Pokhara, London Metropolitan University">
     <meta name="author" content="Anuj Thapa">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Anuj Thapa | Portfolio</title>
+    <title>Anuj Thapa | Advanced Portfolio</title>
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.default.css" rel="stylesheet">
-    <link href="css/magnific-popup.min.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="icons-fonts/style.css" rel="stylesheet">
-    <link href="css/preloader.min.css" rel="stylesheet">
-    <link href="css/styles.min.css" rel="stylesheet">
-    <link href="css/responsive.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,700italic' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <!-- Theme and Language Toggles -->
-    <div class="theme-language-toggle">
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
-            <i class="fa fa-moon-o"></i>
-        </button>
-        <button id="lang-toggle" class="theme-toggle-btn" title="Switch Language">
-            <span id="lang-text">EN</span>
-        </button>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/advanced-style.css">
+</head>
+<body class="dark-mode">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <span class="loader-text">Loading...</span>
+            <div class="loader-bar"></div>
+        </div>
     </div>
 
-    <div class="preloader">
-      <span class="loader">
-        <span class="loader-inner"></span>
-      </span>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="https://www.facebook.com/profile.php?id=100075320037820" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anujthapa444/" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.pinterest.com/thapapabitraanuj/" target="_blank" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <div class="social-line"></div>
     </div>
-    <div class="right-br"></div>
-    <div class="left-br"></div>
-    <div class="fixed-left-contact">
-      <p>+977&nbsp;9865117237</p>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Anuj.<span>Thapa</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-en="Home" data-ne="गृहपृष्ठ">Home</a>
+                <a href="#about" class="nav-link" data-en="About" data-ne="मेरो बारेमा">About</a>
+                <a href="#skills" class="nav-link" data-en="Skills" data-ne="सीपहरू">Skills</a>
+                <a href="#services" class="nav-link" data-en="Services" data-ne="सेवाहरू">Services</a>
+                <a href="#portfolio" class="nav-link" data-en="Portfolio" data-ne="ग्यालेरी">Portfolio</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-ne="सम्पर्क">Contact</a>
+            </div>
+            
+            <!-- Clock Container -->
+            <div class="clock-widget">
+                <div class="analog-clock">
+                    <div class="hour-hand"></div>
+                    <div class="min-hand"></div>
+                    <div class="sec-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+                <div class="digital-display">
+                    <span id="digital-clock" class="digital-time"></span>
+                </div>
+                <div class="date-display">
+                    <span id="nepali-date" class="ne-date"></span>
+                    <span id="english-date" class="en-date"></span>
+                </div>
+            </div>
+            <div class="nav-controls">
+                <button id="lang-toggle" aria-label="Switch Language">
+                    <span class="lang-text">EN</span>
+                </button>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="#home" data-en="Home" data-ne="गृहपृष्ठ">Home</a>
+            <a href="#about" data-en="About" data-ne="मेरो बारेमा">About</a>
+            <a href="#skills" data-en="Skills" data-ne="सीपहरू">Skills</a>
+            <a href="#services" data-en="Services" data-ne="सेवाहरू">Services</a>
+            <a href="#portfolio" data-en="Portfolio" data-ne="ग्यालेरी">Portfolio</a>
+            <a href="#contact" data-en="Contact" data-ne="सम्पर्क">Contact</a>
+        </div>
     </div>
-    <div class="fixed-right-socials">
-      <ul class="list-unstiled">
-        <li><a href="https://www.facebook.com/profile.php?id=100075320037820"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="https://www.instagram.com/anujthapa444/"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="https://www.pinterest.com/thapapabitraanuj/"><i class="fa fa-pinterest"></i></a></li>
-      </ul>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-2 sidebar">
-          <div class="col-sm-2 sidebarWrapper">
-            <img class="user-pic" src="images/avatar.jpg" alt="Anuj Thapa">
-            <div class="signature">
-              <img class="img-responsive" alt="signature" src="images/signature.png">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div id="particles-js"></div>
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <span class="greeting" id="hero-greeting" data-en="Hello, I am" data-ne="नमस्ते, म हुँ">Hello, I am</span>
+                <h1 class="glitch" data-text="Anuj Thapa" data-en-name="Anuj Thapa" data-ne-name="अनुज थापा">Anuj Thapa</h1>
+                <div class="typing-container">
+                    <span data-en="I'm a " data-ne="म एक ">I'm a </span>
+                    <span class="typed-text"></span>
+                </div>
+                <p class="hero-description" data-en="BSc (Hons) Computing Student at Informatics College Pokhara (London Met University). Crafting digital experiences with code and creativity." 
+                   data-ne="इन्फर्मेटिक्स कलेज पोखरा (लण्डन मेट युनिभर्सिटी) मा बीएससी (अनर्स) कम्प्यूटिंग विद्यार्थी। कोड र रचनात्मकताको साथ डिजिटल अनुभवहरू सिर्जना गर्दै।">
+                    BSc (Hons) Computing Student at Informatics College Pokhara. <br>
+                    Affiliated to London Metropolitan University.
+                </p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary" data-en="Hire Me" data-ne="मलाई काम दिनुहोस्">Hire Me</a>
+                    <a href="#portfolio" class="btn btn-outline" data-en="View Work" data-ne="काम हेर्नुहोस्">View Work</a>
+                </div>
             </div>
-            <div class="menu">
-              <div class="toggle-btn">
-                <span class="lines"></span>
-              </div>
-              <ul class="nav">
-                <li class="active"><a href="#about" data-en="About me" data-ne="मेरो बारेमा">About me</a></li>
-                <li><a href="#services" data-en="Services" data-ne="सेवाहरू">Services</a></li>
-                <li><a href="#portfolio" data-en="Gallery" data-ne="ग्यालेरी">Gallery</a></li>
-                <li><a href="#resume" data-en="Resume" data-ne="बायोडाटा">Resume</a></li>
-                <li><a href="#blog" data-en="Blog" data-ne="ब्लग">Blog</a></li>
-                <li><a href="#testimonial" data-en="Testimonial" data-ne="प्रशंसा">Testimonial</a></li>
-                <li><a href="#contact" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
-              </ul>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="img-wrapper">
+                    <img src="images/avatar.jpg" alt="Anuj Thapa">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <section id="about">
-        <div class="about-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 aboutWrapper">
-                <div class="nav-extra hidden-xs">
-                  <a href="tel:+9779865117237" class="btn btn-default"><span aria-hidden="true" class="icon_phone"></span></a>
-                  <a href="mailto:thapapabitraanuj@gmail.com" class="btn btn-info" data-en="Hire me now" data-ne="मलाई काम दिनुहोस्">Hire me now</a>
-                </div>
-                <div class="section-title">
-                  <h2><span>01</span><span data-en="About me" data-ne="मेरो बारेमा">About me</span></h2>
-                </div>
-                <h1 data-en="Hello, I am <strong>Anuj Thapa</strong>" data-ne="नमस्ते, म <strong>अनुज थापा</strong> हुँ">Hello, I am <strong>Anuj Thapa</strong></h1>
-                <h3 style="margin-top: 0;"><span data-en="I'm a" data-ne="म एक">I'm a</span> <span id="typed-text" style="color: #9c27b0; font-weight: 600;"></span><span class="typed-cursor">|</span></h3>
-                <p data-en="As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field."
-                   data-ne="सिभिल इन्जिनियरिङमा भर्खरै स्नातक गरेको र कम्प्युटर सीपमा बलियो पृष्ठभूमि भएकोले, म मेरो प्राविधिक ज्ञान र रचनात्मकतालाई यस क्षेत्रमा योगदान दिन उत्सुक छु।">
-                   As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field.</p>
-                <div class="skills">
-                  <div class="section-title">
-                    <h2><span>02</span><span data-en="Skills" data-ne="सीपहरू">Skills</span></h2>
-                  </div>
-                  <div class="skill-outer" data-aos="fade-right">
-                    <h4>HTML5 & CSS3 <span>80%</span></h4>
-                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 80%;"></div></div>
-                  </div>
-                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="100">
-                    <h4>JavaScript <span>30%</span></h4>
-                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 30%;"></div></div>
-                  </div>
-                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="200">
-                    <h4>Photography <span>85%</span></h4>
-                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 85%;"></div></div>
-                  </div>
-                  <div class="skill-outer" data-aos="fade-right" data-aos-delay="300">
-                    <h4>AUTO CAD <span>50%</span></h4>
-                    <div class="progress progress-striped active"><div class="progress-bar" role="progressbar" style="width: 50%;"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="scroll-down">
+            <div class="mouse"></div>
         </div>
-      </section>
-      <section id="services">
-        <div class="services-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 servicesWrapper">
-                <div class="section-title">
-                  <h2><span>03</span><span data-en="Services" data-ne="सेवाहरू">Services</span></h2>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="service-box" data-aos="zoom-in">
-                          <i class="icon icon_globe"></i>
-                          <h3 data-en="Web Development" data-ne="वेब विकास">Web Development</h3>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle" data-en="01. Biography" data-ne="०१. जीवनी">01. Biography</span>
+                <h2 data-en="About Me" data-ne="मेरो बारेमा">About Me</h2>
+            </div>
+            <div class="about-content">
+                    <p data-en="I am currently pursuing my BSc (Hons) in Computing at Informatics College Pokhara, affiliated with London Metropolitan University. My passion lies in solving complex problems through technology."
+                       data-ne="म हाल लन्डन मेट्रोपोलिटन युनिभर्सिटीसँग सम्बन्धन प्राप्त इन्फर्मेटिक्स कलेज पोखरामा बीएससी (अनर्स) कम्प्युटिङ अध्ययन गरिरहेको छु। मेरो लगाव टेक्नोलोजी मार्फत जटिल समस्याहरू समाधान गर्नमा छ।">
+                        I am currently pursuing my <strong>BSc (Hons) in Computing</strong> at Informatics College Pokhara, 
+                        affiliated with London Metropolitan University.
+                    </p>
+                    <p data-en="Transitioning from a general tech enthusiast to a specialized developer, I explore various domains of computing, from software development to system analysis."
+                       data-ne="एक सामान्य प्राविधिक उत्साहीबाट एक विशेष विकासकर्तामा रूपान्तरण हुँदै, म सफ्टवेयर विकासदेखि प्रणाली विश्लेषणसम्म कम्प्युटिङका विभिन्न क्षेत्रहरू अन्वेषण गर्छु।">
+                        Transitioning from a general tech enthusiast to a specialized developer, I explore various 
+                        domains of computing, from software development to system analysis.
+                    </p>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="label" data-en="Phone:" data-ne="फोन:">Phone:</span>
+                            <span class="value">+977 9865117237</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label" data-en="Email:" data-ne="इमेल:">Email:</span>
+                            <span class="value">thapapabitraanuj@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label" data-en="Location:" data-ne="ठेगाना:">Location:</span>
+                            <span class="value" data-en="Pokhara-16, Kaski, Nepal" data-ne="पोखरा -१६, कास्की, नेपाल">Pokhara-16, Kaski, Nepal</span>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
-                          <i class="icon icon_pens"></i>
-                          <h3 data-en="AUTO CAD Design" data-ne="अटो क्याड डिजाइन">AUTO CAD Design</h3>
+                     <div class="signature">
+                        <img src="images/signature.png" alt="Signature" class="signature-img">
+                    </div>
+                </div>
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stat-box">
+                        <span class="stat-number" data-en="2+" data-ne="२+">2+</span>
+                        <span class="stat-label" data-en="Years Exp" data-ne="वर्ष अनुभव">Years Exp</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-en="10+" data-ne="१०+">10+</span>
+                        <span class="stat-label" data-en="Projects" data-ne="आयोजनाहरू">Projects</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-en="5+" data-ne="५+">5+</span>
+                        <span class="stat-label" data-en="Clients" data-ne="ग्राहकहरू">Clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education / Resume Section -->
+    <!-- Education Section Removed -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle" data-en="02. Expertise" data-ne="०२. विशेषज्ञता">02. Expertise</span>
+                <h2 data-en="My Skills" data-ne="मेरो सीपहरू">My Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <div class="skill-category" data-aos="fade-up">
+                    <h3 data-en="Technical" data-ne="प्राविधिक">Technical</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML5 & CSS3</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-line" data-percent="80%">
+                                <span style="width: 80%"></span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="progress-line" data-percent="30%">
+                                <span style="width: 30%"></span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-line" data-percent="70%">
+                                <span style="width: 70%"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
-                          <i class="icon icon_easel"></i>
-                          <h3 data-en="Online Marketing" data-ne="अनलाइन मार्केटिङ">Online Marketing</h3>
+                </div>
+                
+                <!-- Creative Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-en="Creative" data-ne="रचनात्मक">Creative</h3>
+                     <div class="circular-skills">
+                        <div class="circle-item">
+                            <div class="circle" data-dots="85">
+                                <div class="points" style="--i:85"></div>
+                            </div>
+                            <div class="text">
+                                <big>85%</big>
+                                <small data-en="Photography" data-ne="फोटोग्राफी">Photography</small>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
-                          <i class="icon icon_globe-2"></i>
-                          <h3 data-en="SEO Optimization" data-ne="एसईओ अप्टिमाइजेसन">SEO Optimization</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle" data-en="03. What I Do" data-ne="०३. म के गर्छु">03. What I Do</span>
+                <h2 data-en="Services" data-ne="सेवाहरू">Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="icon-box">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-en="Web Development" data-ne="वेब विकास">Web Development</h3>
+                    <p data-en="Modern, responsive websites built with the latest technologies." data-ne="नवीनतम प्रविधिहरूसँग निर्मित आधुनिक, उत्तरदायी वेबसाइटहरू।">Modern, responsive websites built with the latest technologies.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 data-en="Software Development" data-ne="सफ्टवेयर विकास">Software Development</h3>
+                    <p data-en="Building robust applications to solve real-world problems." data-ne="वास्तविक विश्वका समस्याहरू समाधान गर्न बलियो अनुप्रयोगहरू निर्माण गर्दै।">Building robust applications to solve real-world problems.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 data-en="Online Marketing" data-ne="अनलाइन मार्केटिङ">Online Marketing</h3>
+                    <p data-en="Strategies to grow your brand and reach your target audience." data-ne="तपाईंको ब्रान्ड बढाउन र लक्षित दर्शकहरूसम्म पुग्न रणनीतिहरू।">Strategies to grow your brand and reach your target audience.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 data-en="SEO Optimization" data-ne="एसईओ अप्टिमाइजेसन">SEO Optimization</h3>
+                    <p data-en="Improve your search engine ranking and drive organic traffic." data-ne="तपाईंको खोज इन्जिन र्याङ्किङ्ग सुधार गर्नुहोस् र अर्गानिक ट्राफिक बढाउनुहोस्।">Improve your search engine ranking and drive organic traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg-alt">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle" data-en="04. Gallery" data-ne="०४. ग्यालेरी">04. Gallery</span>
+                <h2 data-en="My Work" data-ne="मेरो काम">My Work</h2>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all" data-en="All" data-ne="सबै">All</button>
+                <button class="filter-btn" data-filter="branding" data-en="Branding" data-ne="ब्रान्डिङ">Branding</button>
+                <button class="filter-btn" data-filter="websites" data-en="Websites" data-ne="वेबसाइटहरू">Websites</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item branding" data-aos="zoom-in">
+                    <div class="portfolio-wrap">
+                        <img src="images/portfolio-1.jpg" alt="Project 1">
+                        <div class="portfolio-info">
+                            <h4 data-en="Project Title" data-ne="आयोजनाको शीर्षक">Project Title</h4>
+                            <p data-en="Branding" data-ne="ब्रान्डिङ">Branding</p>
+                            <div class="portfolio-links">
+                                <a href="images/portfolio-1.jpg" class="glightbox" data-gallery="portfolio"><i class="fas fa-plus"></i></a>
+                                <a href="#" title="More Details"><i class="fas fa-link"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-              </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item websites" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-wrap">
+                        <img src="images/portfolio-2.jpg" alt="Project 2">
+                        <div class="portfolio-info">
+                            <h4 data-en="Project Title" data-ne="आयोजनाको शीर्षक">Project Title</h4>
+                            <p data-en="Websites" data-ne="वेबसाइटहरू">Websites</p>
+                            <div class="portfolio-links">
+                                <a href="images/portfolio-2.jpg" class="glightbox" data-gallery="portfolio"><i class="fas fa-plus"></i></a>
+                                <a href="#" title="More Details"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      <section id="portfolio">
-        <div class="portfolio-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 portfolioWrapper">
-                <div class="section-title">
-                  <h2 class="pull-left"><span>04</span><span data-en="Gallery" data-ne="ग्यालेरी">Gallery</span></h2>
-                  <div class="portfolio-filter pull-right">
-                    <ul>
-                      <li class="btn btn-default filter active" data-filter="all" data-en="Show All" data-ne="सबै देखाउनुहोस्">Show All</li>
-                      <li class="btn btn-default filter" data-filter=".category-1" data-en="Branding" data-ne="ब्रान्डिङ">Branding</li>
-                      <li class="btn btn-default filter" data-filter=".category-2" data-en="Websites" data-ne="वेबसाइटहरू">Websites</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row">
-                  <div id="mix-container">
-                    <div class="col-xs-12 col-sm-4 mix category-1" data-aos="flip-left">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-1">
-                          <img src="images/portfolio-1.jpg" alt="">
-                          <div class="imageHover"><div><h3 data-en="Project Title" data-ne="आयोजनाको शीर्षक">Project Title</h3><span data-en="Branding" data-ne="ब्रान्डिङ">Branding</span></div></div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 mix category-2" data-aos="flip-left" data-aos-delay="100">
-                      <div class="imageWrapper">
-                        <a class="lightbox" href="#popup-2">
-                          <img src="images/portfolio-2.jpg" alt="">
-                          <div class="imageHover"><div><h3 data-en="Project Title" data-ne="आयोजनाको शीर्षक">Project Title</h3><span data-en="Websites" data-ne="वेबसाइटहरू">Websites</span></div></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+             <div class="section-header" data-aos="fade-up">
+                <span class="subtitle" data-en="05. Connect" data-ne="०५. सम्पर्क">05. Connect</span>
+                <h2 data-en="Get In Touch" data-ne="सम्पर्कमा रहनुहोस्">Get In Touch</h2>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="resume">
-        <div class="resume-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 resumeWrapper">
-                <div class="section-title">
-                  <h2><span>05</span><span data-en="Resume" data-ne="बायोडाटा">Resume</span></h2>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3 data-en="Address" data-ne="ठेगाना">Address</h3>
+                        <p data-en="Pokhara -16, Kaski, Nepal" data-ne="पोखरा -१६, कास्की, नेपाल">Pokhara -16, Kaski, Nepal</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3 data-en="Phone" data-ne="फोन">Phone</h3>
+                        <p>+977 9865117237</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3 data-en="Email" data-ne="इमेल">Email</h3>
+                        <p>thapapabitraanuj@gmail.com</p>
+                    </div>
+                    
+                <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100075320037820" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/anujthapa444/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.pinterest.com/thapapabitraanuj/" target="_blank" class="social-btn"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
-                <div class="resume-box" data-aos="fade-up">
-                  <i class="icon_contacts_alt"></i>
-                  <h3 data-en="Pokhara University" data-ne="पोखरा विश्वविद्यालय">Pokhara University</h3>
-                  <span>2022 - Present</span>
-                  <p data-en="I am in Pokhara University for Bachelor Degree of subject Civil Engineering."
-                     data-ne="म पोखरा विश्वविद्यालयमा सिभिल इन्जिनियरिङमा स्नातक तहमा अध्ययनरत छु।">I am in Pokhara University for Bachelor Degree of subject Civil Engineering.</p>
-                </div>
-                <div class="resume-box" data-aos="fade-up" data-aos-delay="100">
-                  <i class="icon_contacts_alt"></i>
-                  <h3 data-en="Plus 2 (10+2)" data-ne="प्लस २ (१०+२)">Plus 2 (10+2)</h3>
-                  <span>2020 - 2022</span>
-                  <p data-en="I completed my 10+2 from Kathmandu Model Secondary School with 3.03 grade."
-                     data-ne="मैले काठमाडौं मोडल सेकेन्डरी स्कूलबाट ३.०३ ग्रेडका साथ १०+२ उत्तीर्ण गरें।">I completed my 10+2 from Kathmandu Model Secondary School with 3.03 grade.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="blog">
-        <div class="blog-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 blogWrapper">
-                <div class="section-title">
-                  <h2><span>06</span><span data-en="Blog Posts" data-ne="ब्लग पोस्टहरू">Blog Posts</span></h2>
-                </div>
-                <div class="blog-post row" data-aos="fade-up">
-                  <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-1.jpg" alt="">
-                      <span class="card-title post-ver-date"><span class="icon_calendar" aria-hidden="true"></span> May 2023 </span>
-                    </div>
-                    <div class="blog-dis">
-                      <h3 data-en="Blog Post with Image" data-ne="छविको साथ ब्लग पोस्ट">Blog Post with Image</h3>
-                      <p data-en="A glimpse into the engineering and design process." data-ne="इन्जिनियरिङ र डिजाइन प्रक्रियाको एक झलक।">A glimpse into the engineering and design process.</p>
-                      <a class="btn btn-default" data-en="Read More" data-ne="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-2.jpg" alt="">
-                      <span class="card-title post-ver-date"><span class="icon_calendar" aria-hidden="true"></span> April 2023 </span>
-                    </div>
-                    <div class="blog-dis">
-                      <h3 data-en="Standard Blog Post" data-ne="मानक ब्लग पोस्ट">Standard Blog Post</h3>
-                      <p data-en="Insights and updates from the world of construction." data-ne="निर्माणको संसारबाट अन्तर्दृष्टि र अपडेटहरू।">Insights and updates from the world of construction.</p>
-                      <a class="btn btn-default" data-en="Read More" data-ne="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="blog-img">
-                      <img src="images/blog-img-3.jpg" alt="">
-                      <span class="card-title post-ver-date"><span class="icon_calendar" aria-hidden="true"></span> March 2023 </span>
-                    </div>
-                    <div class="blog-dis">
-                      <h3 data-en="Another Blog Post" data-ne="अर्को ब्लग पोस्ट">Another Blog Post</h3>
-                      <p data-en="Exploring the intersection of technology and architecture." data-ne="प्रविधि र वास्तुकलाको संगम अन्वेषण।">Exploring the intersection of technology and architecture.</p>
-                      <a class="btn btn-default" data-en="Read More" data-ne="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="testimonial">
-        <div class="testimonial-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 testimonialWrapper">
-                <div class="section-title">
-                  <h2><span>07</span><span data-en="Family member" data-ne="परिवारका सदस्यहरू">Family member</span></h2>
-                </div>
-                <div class="testimonial-box" data-aos="fade-in">
-                  <div id="testimonialSlider" class="owl-carousel">
-                    <div class="testimonial">
-                      <div class="testimonial_content"><div class="testimonial_content_inner">
-                        <p data-en="I am a nursing graduate with a Bachelor's degree and currently working in the emergency department."
-                           data-ne="म नर्सिङ स्नातक हुँ र हाल अस्पतालको आकस्मिक विभागमा कार्यरत छु।">I am a nursing graduate with a Bachelor's degree and currently working in the emergency department.</p>
-                      </div></div>
-                      <div class="testimonial_author clearfix">
-                        <img alt="" src="images/client-1.jpg" class="testimonial_photo">
-                        <h3 class="testimonial_name">Anuj thapa</h3>
-                        <div class="testimonial_position" data-en="Sister (Nurse)" data-ne="बहिनी (नर्स)">Sister (Nurse)</div>
-                      </div>
-                    </div>
-                    <div class="testimonial">
-                      <div class="testimonial_content"><div class="testimonial_content_inner">
-                        <p data-en="I am a high school graduate who has chosen to be a homemaker, supporting my family."
-                           data-ne="म एक उच्च माध्यमिक विद्यालय स्नातक हुँ जसले गृहिणी बन्ने छनौट गरेको छ।">I am a high school graduate who has chosen to be a homemaker, supporting my family.</p>
-                      </div></div>
-                      <div class="testimonial_author clearfix">
-                        <img alt="" src="images/client-2.jpg" class="testimonial_photo">
-                        <h3 class="testimonial_name">Durga Kumari Chetrri Thapa</h3>
-                        <div class="testimonial_position" data-en="Mother (House wife)" data-ne="आमा (गृहिणी)">Mother (House wife)</div>
-                      </div>
-                    </div>
-                    <div class="testimonial">
-                      <div class="testimonial_content"><div class="testimonial_content_inner">
-                        <p data-en="I am a successful businessperson who completed high school and enjoys playing football as a hobby."
-                           data-ne="म एक सफल व्यवसायी हुँ जसले हाई स्कूल पूरा गरेको छु र फुटबल खेल्न मन पराउँछु।">I am a successful businessperson who completed high school and enjoys playing football as a hobby.</p>
-                      </div></div>
-                      <div class="testimonial_author clearfix">
-                        <img alt="" src="images/client-3.jpg" class="testimonial_photo">
-                        <h3 class="testimonial_name">Ganesh Bahadur Thapa</h3>
-                        <div class="testimonial_position" data-en="Father (Businessman)" data-ne="बुबा (व्यवसायी)">Father (Businessman)</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="contact">
-        <div class="contact-background">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-9 col-sm-offset-3 contactWrapper">
-                <div class="section-title">
-                  <h2><span>08</span><span data-en="Get In Touch" data-ne="सम्पर्कमा रहनुहोस्">Get In Touch</span></h2>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-6 contact-form" data-aos="fade-right">
-                    <form method="post" id="contactform">
-                      <div class="input-style">
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Name">
-                        <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail">
-                      </div>
-                      <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
-                      <input type="submit" id="submit" class="btn btn-info" name="submit" value="Send Message">
+
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name" data-en="Your Name" data-ne="तपाईंको नाम">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email" data-en="Your Email" data-ne="तपाईंको इमेल">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message" data-en="Your Message" data-ne="तपाईंको सन्देश">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><span data-en="Send Message" data-ne="सन्देश पठाउनुहोस्">Send Message</span> <i class="fas fa-paper-plane"></i></button>
                     </form>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 contact-info" data-aos="fade-left">
-                    <div class="widget">
-                      <ul>
-                        <li><h3><span class="icon_pin"></span> <span data-en="Address" data-ne="ठेगाना">Address</span></h3>
-                        <p data-en="Pokhara -16 , Kaski , Nepal" data-ne="पोखरा -१६, कास्की, नेपाल">Pokhara -16 , Kaski , Nepal</p></li>
-                        <li><h3><span class="icon_phone"></span> <span data-en="Phone" data-ne="फोन">Phone</span></h3>
-                        <p>+(977) 9865117237</p></li>
-                        <li><h3><span class="icon_mail"></span> <span data-en="Email" data-ne="इमेल">Email</span></h3>
-                        <p>thapapabitraanuj@gmail.com</p></li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-                <div class="row" style="margin-top: 30px;">
-                  <div class="col-xs-12" data-aos="fade-up">
-                    <div class="google-maps" style="width: 100%; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14058.952910010568!2d83.98064!3d28.245624!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1682588085899!5m2!1sen!2snp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                  </div>
+            </div>
+            
+             <div class="map-container" data-aos="fade-up">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14058.952910010568!2d83.98064!3d28.245624!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1682588085899!5m2!1sen!2snp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 <strong>Anuj Thapa</strong>. <span data-en="All Rights Reserved." data-ne="सबै अधिकार सुरक्षित।">All Rights Reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#" data-en="Privacy Policy" data-ne="गोपनीयता नीति">Privacy Policy</a>
+                    <a href="#" data-en="Terms of Service" data-ne="सेवाका सर्तहरू">Terms of Service</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
-    </div>
-    <footer class="copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-9 col-sm-offset-3 footer-background">
-            <div class="row">
-              <div class="col-sm-6 text-left"> Copyright &copy; 2023 Anuj Thapa. </div>
-              <div class="col-sm-6 text-right" data-en="Designed With <i class='fa fa-heart-o red'></i> By <a target='_blank' href='https://www.facebook.com/profile.php?id=100075320037820'>Anuj Thapa</a>" data-ne="अनुज थापा द्वारा <i class='fa fa-heart-o red'></i> का साथ डिजाइन गरिएको">Designed With <i class="fa fa-heart-o red"></i> By <a target="_blank" href="https://www.facebook.com/profile.php?id=100075320037820">Anuj Thapa</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/theme-plugins.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+
+    <!-- Intro Modal -->
+    <div id="intro-modal" class="modal-overlay">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h2 data-en="Welcome" data-ne="स्वागत छ">Welcome</h2>
+                <p data-en="Please introduce yourself to enter." data-ne="कृपया प्रवेश गर्न आफ्नो परिचय दिनुहोस्।">Please introduce yourself to enter.</p>
+            </div>
+            <form id="visitor-form" name="visitor-log" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="visitor-log">
+                <div class="form-group">
+                    <input type="text" id="visitor-name" name="name" required placeholder=" " autocomplete="off">
+                    <label for="visitor-name" data-en="Your Name" data-ne="तपाईंको नाम">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="visitor-source" name="source" required placeholder=" " autocomplete="off">
+                    <label for="visitor-source" data-en="How did you find this site?" data-ne="तपाईंले यो साइट कसरी फेला पार्नुभयो?">How did you find this site?</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span data-en="Enter Portfolio" data-ne="पोर्टफोलियो प्रविष्ट गर्नुहोस्">Enter Portfolio</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/custom.js"></script>
-    <div id="back-to-top" title="Back to Top"><i class="fa fa-chevron-up"></i></div>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script> 
+    <!-- Note: GLightbox CSS/JS needs to be added if using it. I added the JS, need CSS too if not covered -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
+    
+    <script src="js/advanced-main.js"></script>
+</body>
 </html>
