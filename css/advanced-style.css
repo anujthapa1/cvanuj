@@ -734,6 +734,7 @@ body.light-mode .signature-img {
     filter: invert(0);
 }
 
+<<<<<<< HEAD
 /* Game Styles */
 .game-container {
     background: var(--card-bg);
@@ -851,6 +852,9 @@ body.light-mode .signature-img {
     color: var(--text-muted);
 }
 
+=======
+/* Skills Section */
+>>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
