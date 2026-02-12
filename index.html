@@ -176,38 +176,29 @@
                 </div>
 
                 <div class="about-extra" data-aos="fade-left">
-                    <div class="about-stats">
-                        <div class="stat-box">
-                            <span class="stat-number" data-en="2+" data-ne="२+">2+</span>
-                            <span class="stat-label" data-en="Years Exp" data-ne="वर्ष अनुभव">Years Exp</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" data-en="10+" data-ne="१०+">10+</span>
-                            <span class="stat-label" data-en="Projects" data-ne="आयोजनाहरू">Projects</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" data-en="5+" data-ne="५+">5+</span>
-                            <span class="stat-label" data-en="Clients" data-ne="ग्राहकहरू">Clients</span>
-                        </div>
-                    </div>
-
-                    <div class="game-container" data-aos="fade-up">
-                        <div class="game-invite">
-                            <p class="invite-text" data-en="I made this game if you are bored here. You can try and engage yourself!" data-ne="यदि तपाईं यहाँ बोर हुनुहुन्छ भने मैले यो खेल बनाएको छु। तपाईं प्रयास गर्न र आफूलाई व्यस्त राख्न सक्नुहुन्छ!">
-                                I made this game if you are bored here. You can try and engage yourself!
-                            </p>
-                            <button id="start-game-btn" class="btn btn-outline small-btn" data-en="Play Game" data-ne="खेल खेल्नुहोस्">Play Game</button>
-                        </div>
-
-                        <div class="game-board-wrapper" style="display: none;">
-                            <div class="game-header">
-                                <span class="moves-count" data-en="Moves: 0" data-ne="चालहरू: ०">Moves: 0</span>
-                                <button id="restart-game-btn" class="btn-icon" title="Restart"><i class="fas fa-redo"></i></button>
+                    <div class="game-container dino-game-container" data-aos="fade-up">
+                        <div class="game-header">
+                            <div class="score-container">
+                                <span class="label" data-en="Score: " data-ne="अंक: ">Score: </span>
+                                <span id="dino-score">0</span>
                             </div>
-                            <div class="memory-game-board">
-                                <!-- Cards will be injected by JS -->
+                            <div class="high-score-container">
+                                <span class="label" data-en="High Score: " data-ne="उच्च अंक: ">High Score: </span>
+                                <span id="dino-high-score">0</span>
                             </div>
                         </div>
+                        <div id="dino-game-wrapper">
+                            <canvas id="dino-canvas"></canvas>
+                            <div id="dino-start-overlay" class="game-overlay">
+                                <p data-en="Press Space or Click to Start" data-ne="सुरु गर्न स्पेस थिच्नुहोस् वा क्लिक गर्नुहोस्">Press Space or Click to Start</p>
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div id="dino-game-over-overlay" class="game-overlay" style="display: none;">
+                                <h3 data-en="GAME OVER" data-ne="खेल समाप्त">GAME OVER</h3>
+                                <button id="dino-restart-btn" class="btn btn-primary btn-sm" data-en="Restart" data-ne="पुन: सुरु गर्नुहोस्">Restart</button>
+                            </div>
+                        </div>
+                        <p class="game-hint" data-en="Use Spacebar or Click to Jump!" data-ne="उफ्रिन स्पेसबार वा क्लिक प्रयोग गर्नुहोस्!">Use Spacebar or Click to Jump!</p>
                     </div>
                 </div>
             </div>
