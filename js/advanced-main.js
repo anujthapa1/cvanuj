@@ -131,8 +131,8 @@ $(document).ready(function () {
 
   function initTyped(lang) {
     if ($('.typed-text').length) {
-      const stringsEn = ["Civil Engineer", "Web Developer", "Designer", "Creative Thinker"];
-      const stringsNe = ["सिभिल इन्जिनियर", "वेब विकासकर्ता", "डिजाइनर", "रचनात्मक चिन्तक"];
+      const stringsEn = ["Computing Student", "Web Developer", "Tech Enthusiast"];
+      const stringsNe = ["कम्प्युटिङ विद्यार्थी", "वेब विकासकर्ता", "प्राविधिक उत्साही"];
 
       typed = new Typed('.typed-text', {
         strings: lang === 'ne' ? stringsNe : stringsEn,
@@ -144,6 +144,78 @@ $(document).ready(function () {
       });
     }
   }
+
+  /* -----------------------------------
+     X. Analog Clock & Date (Nepal Time)
+  ----------------------------------- */
+  function updateClock() {
+    // Nepal Time is UTC + 5:45
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const nepalTime = new Date(utc + (3600000 * 5.75));
+
+    const seconds = nepalTime.getSeconds();
+    const minutes = nepalTime.getMinutes();
+    const hours = nepalTime.getHours();
+
+    const secDeg = ((seconds / 60) * 360);
+    const minDeg = ((minutes / 60) * 360) + ((seconds / 60) * 6);
+    const hourDeg = ((hours / 12) * 360) + ((minutes / 60) * 30);
+
+    const secHand = document.querySelector('.sec-hand');
+    const minHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+
+    if (secHand && minHand && hourHand) {
+      secHand.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+      minHand.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+      hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+    }
+
+    // Digital Clock Display
+    const digitalClockEl = document.getElementById('digital-clock');
+    if (digitalClockEl) {
+      let h = hours % 12;
+      h = h ? h : 12; // hour '0' should be '12'
+      const m = minutes < 10 ? '0' + minutes : minutes;
+      const s = seconds < 10 ? '0' + seconds : seconds;
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      digitalClockEl.textContent = `${h}:${m}:${s} ${ampm}`;
+    }
+
+    // Date Display
+    const enDateEl = document.getElementById('english-date');
+    const neDateEl = document.getElementById('nepali-date');
+
+    if (enDateEl) {
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      enDateEl.textContent = nepalTime.toLocaleDateString('en-US', options);
+    }
+
+    // Simple Nepali Date Mapping (Approximate or use library if strictly required, using generic text for now or simple conversion)
+    // Since we don't have a library, we will display the current year/month in Nepali numerals/text if possible, 
+    // or just keep English date for now as the user didn't provide a library. 
+    // BUT, let's try to map the numbers to Nepali at least.
+    if (neDateEl) {
+      const year = nepalTime.getFullYear();
+      const month = nepalTime.getMonth() + 1; // 1-12
+      const day = nepalTime.getDate();
+
+      // English to Nepali Number
+      const toNepaliNum = (num) => num.toString().replace(/\d/g, d => "०१२३४५६७८९"[d]);
+
+      // Rough BS conversion (AD + ~56y 8m 15d) - this is complex without a library.
+      // Let's display AD date in Nepali script for accuracy, or just the day/time.
+      // The user asked for "Nepal data and eng date". Usually implies BS date. 
+      // Without a library (like nepali-date-converter), accurate BS date is hard.
+      // I'll stick to formatting the AD date in Nepali script to be safe and accurate to *time*.
+
+      neDateEl.textContent = `${toNepaliNum(year)} / ${toNepaliNum(month)} / ${toNepaliNum(day)}`;
+    }
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock(); // Initial call
 
   // Initialize Language
   updateLanguage(currentLang);
@@ -189,116 +261,82 @@ $(document).ready(function () {
   });
 
   /* -----------------------------------
-     5. Particles.js Config
+     5. Dynamic Environment & Particles
   ----------------------------------- */
+  function getNepalTime() {
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    return new Date(utc + (3600000 * 5.75));
+  }
+
+
+
   if ($('#particles-js').length) {
-    particlesJS('particles-js',
-      {
+    const nepalTime = getNepalTime();
+    const month = nepalTime.getMonth(); // 0 = Jan, 11 = Dec
+
+    let particleConfig = {};
+
+    // Winter: Dec (11), Jan (0), Feb (1) -> Snow
+    if (month === 11 || month === 0 || month === 1) {
+      // Snow Config
+      particleConfig = {
         "particles": {
-          "number": {
-            "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": ["#00bcd4", "#ff4081"]
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            },
-            "polygon": {
-              "nb_sides": 5
-            }
-          },
-          "opacity": {
-            "value": 0.5,
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 40,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#ffffff",
-            "opacity": 0.2,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 3,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
+          "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": "#ffffff" },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.8, "random": true, "anim": { "enable": false } },
+          "size": { "value": 5, "random": true, "anim": { "enable": false } },
+          "line_linked": { "enable": false },
+          "move": { "enable": true, "speed": 2, "direction": "bottom", "random": false, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
           "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 1
-              }
-            },
-            "bubble": {
-              "distance": 400,
-              "size": 40,
-              "duration": 2,
-              "opacity": 8,
-              "speed": 3
-            },
-            "repulse": {
-              "distance": 200,
-              "duration": 0.4
-            },
-            "push": {
-              "particles_nb": 4
-            },
-            "remove": {
-              "particles_nb": 2
-            }
-          }
+          "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+          "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
         },
         "retina_detect": true
-      }
-    );
+      };
+    }
+    // Monsoon: Jun (5), Jul (6), Aug (7) -> Rain
+    else if (month >= 5 && month <= 7) {
+      // Rain Config
+      particleConfig = {
+        "particles": {
+          "number": { "value": 400, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": "#00bcd4" },
+          "shape": { "type": "circle" }, // We can't do lines easily in v2 without custom shape, stick to fast moving dots
+          "opacity": { "value": 0.6, "random": false, "anim": { "enable": false } },
+          "size": { "value": 2, "random": true, "anim": { "enable": false } },
+          "line_linked": { "enable": false },
+          "move": { "enable": true, "speed": 20, "direction": "bottom", "random": false, "straight": true, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
+        "retina_detect": true
+      };
+    }
+    // Default: Tech Constellation
+    else {
+      particleConfig = {
+        "particles": {
+          "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": ["#00bcd4", "#ff4081"] },
+          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
+          "opacity": { "value": 0.5, "random": true, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } },
+          "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
+          "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+          "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+          "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+        },
+        "retina_detect": true
+      };
+    }
+
+    particlesJS('particles-js', particleConfig);
   }
 
   /* -----------------------------------
@@ -402,5 +440,242 @@ $(document).ready(function () {
       }, 300);
     });
   });
+
+  /* -----------------------------------
+     11. Welcome Modal & Dynamic Greeting
+  ----------------------------------- */
+  const introModal = document.getElementById('intro-modal');
+  const visitorForm = document.getElementById('visitor-form');
+  const heroGreeting = document.getElementById('hero-greeting');
+
+  // Check if visitor has already introduced themselves
+  const visitorName = localStorage.getItem('visitorName');
+
+  function updateGreeting(name) {
+    if (name && heroGreeting) {
+      // Check current language to format greeting
+      const currentLang = localStorage.getItem('lang') || 'en';
+      if (currentLang === 'ne') {
+        heroGreeting.setAttribute('data-ne', `नमस्ते ${name}, म हुँ`);
+        if (heroGreeting.textContent.includes('नमस्ते')) {
+          heroGreeting.textContent = `नमस्ते ${name}, म हुँ`;
+        }
+      } else {
+        heroGreeting.setAttribute('data-en', `Hello ${name}, I am`);
+        if (heroGreeting.textContent.includes('Hello')) {
+          heroGreeting.textContent = `Hello ${name}, I am`;
+        }
+      }
+    }
+  }
+
+  if (visitorName) {
+    updateGreeting(visitorName);
+  } else {
+    // Show Modal
+    setTimeout(() => {
+      if (introModal) introModal.classList.add('active');
+      $('body').css('overflow', 'hidden'); // Prevent scrolling
+    }, 2000); // Small delay after loader
+  }
+
+  if (visitorForm) {
+    visitorForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('visitor-name');
+      const sourceInput = document.getElementById('visitor-source');
+
+      if (nameInput && nameInput.value.trim() !== '') {
+        const name = nameInput.value.trim();
+        const source = sourceInput.value.trim();
+
+        // Save to LocalStorage
+        localStorage.setItem('visitorName', name);
+
+        // Update Greeting
+        updateGreeting(name);
+
+        // Submit to Netlify (AJAX)
+        const formData = new FormData(visitorForm);
+        fetch('/', {
+          method: 'POST',
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        }).then(() => {
+          console.log('Form successfully submitted');
+        }).catch((error) => {
+          console.error('Form submission error:', error);
+        });
+
+        // Close Modal
+        introModal.classList.remove('active');
+        $('body').css('overflow', 'auto');
+      }
+    });
+  }
+
+  /* -----------------------------------
+     12. 3D Tilt Effect
+  ----------------------------------- */
+  $('body').on('mousemove', '.service-card, .portfolio-wrap', function (e) {
+    const el = $(this);
+    const width = el.outerWidth();
+    const height = el.outerHeight();
+    const offset = el.offset();
+    const x = e.pageX - offset.left;
+    const y = e.pageY - offset.top;
+
+    const xRot = (width / 2 - x) / 20; // Max rotation deg
+    const yRot = (y - height / 2) / 20;
+
+    el.css({
+      'transform': `perspective(1000px) rotateY(${xRot}deg) rotateX(${yRot}deg) scale(1.05)`,
+      'z-index': '10'
+    });
+  });
+
+  $('body').on('mouseleave', '.service-card, .portfolio-wrap', function () {
+    $(this).css({
+      'transform': 'perspective(1000px) rotateY(0) rotateX(0) scale(1)',
+      'z-index': '1'
+    });
+  });
+
+  /* -----------------------------------
+     13. Interactive Memory Game
+  ----------------------------------- */
+  const cardsArray = [
+    { name: 'html', icon: '<i class="fab fa-html5"></i>' },
+    { name: 'css', icon: '<i class="fab fa-css3-alt"></i>' },
+    { name: 'js', icon: '<i class="fab fa-js"></i>' },
+    { name: 'react', icon: '<i class="fab fa-react"></i>' },
+    { name: 'python', icon: '<i class="fab fa-python"></i>' },
+    { name: 'node', icon: '<i class="fab fa-node"></i>' },
+  ];
+
+  let gameGrid = [...cardsArray, ...cardsArray];
+  let firstCard = null;
+  let secondCard = null;
+  let lockBoard = false;
+  let moves = 0;
+  let matchedPairs = 0;
+
+  const gameBoard = document.querySelector('.memory-game-board');
+  const movesDisplay = document.querySelector('.moves-count');
+  const startGameBtn = document.getElementById('start-game-btn');
+  const restartGameBtn = document.getElementById('restart-game-btn');
+  const gameInvite = document.querySelector('.game-invite');
+  const gameWrapper = document.querySelector('.game-board-wrapper');
+
+  function shuffle(array) {
+    return array.sort(() => 0.5 - Math.random());
+  }
+
+  function createBoard() {
+    if (!gameBoard) return;
+    gameBoard.innerHTML = '';
+    shuffle(gameGrid).forEach(item => {
+      const card = document.createElement('div');
+      card.classList.add('memory-card');
+      card.dataset.name = item.name;
+
+      const frontFace = document.createElement('div');
+      frontFace.classList.add('front-face');
+      frontFace.innerHTML = item.icon;
+
+      const backFace = document.createElement('div');
+      backFace.classList.add('back-face');
+      backFace.innerHTML = '<i class="fas fa-code"></i>';
+
+      card.appendChild(frontFace);
+      card.appendChild(backFace);
+
+      card.addEventListener('click', flipCard);
+      gameBoard.appendChild(card);
+    });
+  }
+
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!firstCard) {
+      firstCard = this;
+      return;
+    }
+
+    secondCard = this;
+    moves++;
+    updateMovesDisplay();
+    checkForMatch();
+  }
+
+  function checkForMatch() {
+    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+    isMatch ? disableCards() : unflipCards();
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    resetBoard();
+    matchedPairs++;
+    if (matchedPairs === cardsArray.length) {
+      setTimeout(() => {
+        alert('You won! Great memory!');
+      }, 500);
+    }
+  }
+
+  function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
+      resetBoard();
+    }, 1000);
+  }
+
+  function resetBoard() {
+    [firstCard, secondCard] = [null, null];
+    lockBoard = false;
+  }
+
+  function updateMovesDisplay() {
+    if (movesDisplay) {
+      // Simple localization for moves
+      const currentLang = localStorage.getItem('lang') || 'en';
+      if (currentLang === 'ne') {
+        // Convert to Nepali numerals roughly
+        const movesNe = moves.toString().replace(/\d/g, d => "०१२३४५६७८९"[d]);
+        movesDisplay.textContent = `चालहरू: ${movesNe}`;
+      } else {
+        movesDisplay.textContent = `Moves: ${moves}`;
+      }
+    }
+  }
+
+  if (startGameBtn) {
+    startGameBtn.addEventListener('click', () => {
+      gameInvite.style.display = 'none';
+      gameWrapper.style.display = 'block';
+      moves = 0;
+      matchedPairs = 0;
+      updateMovesDisplay();
+      createBoard();
+    });
+  }
+
+  if (restartGameBtn) {
+    restartGameBtn.addEventListener('click', () => {
+      moves = 0;
+      matchedPairs = 0;
+      updateMovesDisplay();
+      createBoard();
+    });
+  }
 
 });

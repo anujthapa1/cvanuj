@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anuj Thapa - Civil Engineer & Developer Portfolio">
-    <meta name="keywords" content="Anuj Thapa, Civil Engineer, Portfolio, Developer, Three.js, WebGL">
+    <meta name="description" content="Anuj Thapa - BSc (Hons) Computing Student & Developer Portfolio">
+    <meta name="keywords" content="Anuj Thapa, Computing Student, Portfolio, Developer, Informatics College Pokhara, London Metropolitan University">
     <meta name="author" content="Anuj Thapa">
     <title>Anuj Thapa | Advanced Portfolio</title>
     
@@ -56,11 +56,27 @@
             <div class="nav-links">
                 <a href="#home" class="nav-link active" data-en="Home" data-ne="गृहपृष्ठ">Home</a>
                 <a href="#about" class="nav-link" data-en="About" data-ne="मेरो बारेमा">About</a>
-                <a href="#education" class="nav-link" data-en="Resume" data-ne="बायोडाटा">Resume</a>
                 <a href="#skills" class="nav-link" data-en="Skills" data-ne="सीपहरू">Skills</a>
                 <a href="#services" class="nav-link" data-en="Services" data-ne="सेवाहरू">Services</a>
                 <a href="#portfolio" class="nav-link" data-en="Portfolio" data-ne="ग्यालेरी">Portfolio</a>
                 <a href="#contact" class="nav-link" data-en="Contact" data-ne="सम्पर्क">Contact</a>
+            </div>
+            
+            <!-- Clock Container -->
+            <div class="clock-widget">
+                <div class="analog-clock">
+                    <div class="hour-hand"></div>
+                    <div class="min-hand"></div>
+                    <div class="sec-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+                <div class="digital-display">
+                    <span id="digital-clock" class="digital-time"></span>
+                </div>
+                <div class="date-display">
+                    <span id="nepali-date" class="ne-date"></span>
+                    <span id="english-date" class="en-date"></span>
+                </div>
             </div>
             <div class="nav-controls">
                 <button id="lang-toggle" aria-label="Switch Language">
@@ -82,7 +98,6 @@
         <div class="mobile-links">
             <a href="#home" data-en="Home" data-ne="गृहपृष्ठ">Home</a>
             <a href="#about" data-en="About" data-ne="मेरो बारेमा">About</a>
-            <a href="#education" data-en="Resume" data-ne="बायोडाटा">Resume</a>
             <a href="#skills" data-en="Skills" data-ne="सीपहरू">Skills</a>
             <a href="#services" data-en="Services" data-ne="सेवाहरू">Services</a>
             <a href="#portfolio" data-en="Portfolio" data-ne="ग्यालेरी">Portfolio</a>
@@ -95,16 +110,16 @@
         <div id="particles-js"></div>
         <div class="container hero-content">
             <div class="hero-text" data-aos="fade-up">
-                <span class="greeting" data-en="Hello, I am" data-ne="नमस्ते, म हुँ">Hello, I am</span>
+                <span class="greeting" id="hero-greeting" data-en="Hello, I am" data-ne="नमस्ते, म हुँ">Hello, I am</span>
                 <h1 class="glitch" data-text="Anuj Thapa" data-en-name="Anuj Thapa" data-ne-name="अनुज थापा">Anuj Thapa</h1>
                 <div class="typing-container">
                     <span data-en="I'm a " data-ne="म एक ">I'm a </span>
                     <span class="typed-text"></span>
                 </div>
-                <p class="hero-description" data-en="Civil Engineer & Tech Enthusiast based in Nepal. Crafting digital experiences with a blend of engineering precision and creative design." 
-                   data-ne="सिभिल इन्जिनियर र प्राविधिक उत्साही। इन्जिनियरिङ परिशुद्धता र रचनात्मक डिजाइनको मिश्रणको साथ डिजिटल अनुभवहरू सिर्जना गर्दै।">
-                    Civil Engineer & Tech Enthusiast based in Nepal. <br>
-                    Crafting digital experiences with a blend of engineering precision and creative design.
+                <p class="hero-description" data-en="BSc (Hons) Computing Student at Informatics College Pokhara (London Met University). Crafting digital experiences with code and creativity." 
+                   data-ne="इन्फर्मेटिक्स कलेज पोखरा (लण्डन मेट युनिभर्सिटी) मा बीएससी (अनर्स) कम्प्यूटिंग विद्यार्थी। कोड र रचनात्मकताको साथ डिजिटल अनुभवहरू सिर्जना गर्दै।">
+                    BSc (Hons) Computing Student at Informatics College Pokhara. <br>
+                    Affiliated to London Metropolitan University.
                 </p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary" data-en="Hire Me" data-ne="मलाई काम दिनुहोस्">Hire Me</a>
@@ -130,17 +145,15 @@
                 <h2 data-en="About Me" data-ne="मेरो बारेमा">About Me</h2>
             </div>
             <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <p data-en="As a recent graduate in Civil Engineering with a strong background in computer skills, I am eager to utilize my technical knowledge and creativity to contribute to the field."
-                       data-ne="सिभिल इन्जिनियरिङमा भर्खरै स्नातक गरेको र कम्प्युटर सीपमा बलियो पृष्ठभूमि भएकोले, म मेरो प्राविधिक ज्ञान र रचनात्मकतालाई यस क्षेत्रमा योगदान दिन उत्सुक छु।">
-                        As a recent graduate in <strong>Civil Engineering</strong> with a strong background in computer skills, 
-                        I am eager to utilize my technical knowledge and creativity to contribute to the field.
+                    <p data-en="I am currently pursuing my BSc (Hons) in Computing at Informatics College Pokhara, affiliated with London Metropolitan University. My passion lies in solving complex problems through technology."
+                       data-ne="म हाल लन्डन मेट्रोपोलिटन युनिभर्सिटीसँग सम्बन्धन प्राप्त इन्फर्मेटिक्स कलेज पोखरामा बीएससी (अनर्स) कम्प्युटिङ अध्ययन गरिरहेको छु। मेरो लगाव टेक्नोलोजी मार्फत जटिल समस्याहरू समाधान गर्नमा छ।">
+                        I am currently pursuing my <strong>BSc (Hons) in Computing</strong> at Informatics College Pokhara, 
+                        affiliated with London Metropolitan University.
                     </p>
-                    <p data-en="I bridge the gap between structural integrity and digital innovation. My journey started with engineering principles but quickly expanded into the digital realm, where I apply the same problem-solving mindset to web development and design."
-                       data-ne="म संरचनात्मक अखण्डता र डिजिटल नवीनता बीचको खाडललाई कम गर्छु। मेरो यात्रा इन्जिनियरिङ सिद्धान्तहरूबाट सुरु भयो तर चाँडै डिजिटल क्षेत्रमा विस्तार भयो, जहाँ म वेब विकास र डिजाइनमा उही समस्या समाधान गर्ने मानसिकता लागू गर्छु।">
-                        I bridge the gap between structural integrity and digital innovation. My journey started with 
-                        engineering principles but quickly expanded into the digital realm, where I apply the same 
-                        problem-solving mindset to web development and design.
+                    <p data-en="Transitioning from a general tech enthusiast to a specialized developer, I explore various domains of computing, from software development to system analysis."
+                       data-ne="एक सामान्य प्राविधिक उत्साहीबाट एक विशेष विकासकर्तामा रूपान्तरण हुँदै, म सफ्टवेयर विकासदेखि प्रणाली विश्लेषणसम्म कम्प्युटिङका विभिन्न क्षेत्रहरू अन्वेषण गर्छु।">
+                        Transitioning from a general tech enthusiast to a specialized developer, I explore various 
+                        domains of computing, from software development to system analysis.
                     </p>
                     <div class="personal-info">
                         <div class="info-item">
@@ -160,18 +173,22 @@
                         <img src="images/signature.png" alt="Signature" class="signature-img">
                     </div>
                 </div>
-                <div class="about-stats" data-aos="fade-left">
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="2+" data-ne="२+">2+</span>
-                        <span class="stat-label" data-en="Years Exp" data-ne="वर्ष अनुभव">Years Exp</span>
+                <div class="game-container" data-aos="fade-left">
+                    <div class="game-invite">
+                        <p class="invite-text" data-en="I made this game if you are bored here. You can try and engage yourself!" data-ne="यदि तपाईं यहाँ बोर हुनुहुन्छ भने मैले यो खेल बनाएको छु। तपाईं प्रयास गर्न र आफूलाई व्यस्त राख्न सक्नुहुन्छ!">
+                            I made this game if you are bored here. You can try and engage yourself!
+                        </p>
+                        <button id="start-game-btn" class="btn btn-outline small-btn" data-en="Play Game" data-ne="खेल खेल्नुहोस्">Play Game</button>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="10+" data-ne="१०+">10+</span>
-                        <span class="stat-label" data-en="Projects" data-ne="आयोजनाहरू">Projects</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="5+" data-ne="५+">5+</span>
-                        <span class="stat-label" data-en="Clients" data-ne="ग्राहकहरू">Clients</span>
+                    
+                    <div class="game-board-wrapper" style="display: none;">
+                        <div class="game-header">
+                            <span class="moves-count" data-en="Moves: 0" data-ne="चालहरू: ०">Moves: 0</span>
+                            <button id="restart-game-btn" class="btn-icon" title="Restart"><i class="fas fa-redo"></i></button>
+                        </div>
+                        <div class="memory-game-board">
+                            <!-- Cards will be injected by JS -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,44 +196,7 @@
     </section>
 
     <!-- Education / Resume Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="subtitle" data-en="Journey" data-ne="यात्रा">Journey</span>
-                <h2 data-en="Resume" data-ne="बायोडाटा">Resume</h2>
-            </div>
-            
-            <div class="timeline">
-                <!-- Education Item 1 -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022 - Present</div>
-                    <div class="timeline-content">
-                        <h3 class="hover-reveal" data-image="images/uni.png" data-en="Pokhara University" data-ne="पोखरा विश्वविद्यालय">Pokhara University</h3>
-                        <h4 data-en="Bachelor in Civil Engineering" data-ne="सिभिल इन्जिनियरिङमा स्नातक">Bachelor in Civil Engineering</h4>
-                        <p data-en="I am currently pursuing my Bachelor's Degree in Civil Engineering at Pokhara University, enhancing my technical knowledge and skills."
-                           data-ne="म हाल पोखरा विश्वविद्यालयमा सिभिल इन्जिनियरिङमा स्नातक तह अध्ययन गरिरहेको छु, मेरो प्राविधिक ज्ञान र सीपहरू बढाउँदै छु।">
-                            I am currently pursuing my Bachelor's Degree in Civil Engineering at Pokhara University.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Education Item 2 -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020 - 2022</div>
-                    <div class="timeline-content">
-                        <h3 class="hover-reveal" data-image="images/college.png" data-en="Kathmandu Model Secondary School" data-ne="काठमाडौं मोडल सेकेन्डिरी स्कूल">Kathmandu Model Secondary School</h3>
-                        <h4 data-en="Plus 2 (Science)" data-ne="प्लस २ (विज्ञान)">Plus 2 (Science)</h4>
-                        <p data-en="Completed my 10+2 education with a GPA of 3.03, building a strong foundation in science and mathematics."
-                           data-ne="विज्ञान र गणितमा बलियो आधार निर्माण गर्दै ३.०३ जीपीएका साथ मेरो १०+२ शिक्षा पूरा गरेँ।">
-                            Completed my 10+2 education with a GPA of 3.03.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Education Section Removed -->
 
     <!-- Skills Section -->
     <section id="skills" class="section bg-alt">
@@ -250,11 +230,11 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>Auto CAD</span>
-                                <span>50%</span>
+                                <span>Python</span>
+                                <span>70%</span>
                             </div>
-                            <div class="progress-line" data-percent="50%">
-                                <span style="width: 50%"></span>
+                            <div class="progress-line" data-percent="70%">
+                                <span style="width: 70%"></span>
                             </div>
                         </div>
                     </div>
@@ -298,8 +278,8 @@
                     <div class="icon-box">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h3 data-en="Auto CAD Design" data-ne="अटो क्याड डिजाइन">Auto CAD Design</h3>
-                    <p data-en="Precise architectural 2D & 3D drafting and modeling." data-ne="सटीक वास्तुकला 2D र 3D ड्राफ्टिङ र मोडलिङ।">Precise architectural 2D & 3D drafting and modeling.</p>
+                    <h3 data-en="Software Development" data-ne="सफ्टवेयर विकास">Software Development</h3>
+                    <p data-en="Building robust applications to solve real-world problems." data-ne="वास्तविक विश्वका समस्याहरू समाधान गर्न बलियो अनुप्रयोगहरू निर्माण गर्दै।">Building robust applications to solve real-world problems.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
@@ -438,6 +418,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Intro Modal -->
+    <div id="intro-modal" class="modal-overlay">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h2 data-en="Welcome" data-ne="स्वागत छ">Welcome</h2>
+                <p data-en="Please introduce yourself to enter." data-ne="कृपया प्रवेश गर्न आफ्नो परिचय दिनुहोस्।">Please introduce yourself to enter.</p>
+            </div>
+            <form id="visitor-form" name="visitor-log" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="visitor-log">
+                <div class="form-group">
+                    <input type="text" id="visitor-name" name="name" required placeholder=" " autocomplete="off">
+                    <label for="visitor-name" data-en="Your Name" data-ne="तपाईंको नाम">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="visitor-source" name="source" required placeholder=" " autocomplete="off">
+                    <label for="visitor-source" data-en="How did you find this site?" data-ne="तपाईंले यो साइट कसरी फेला पार्नुभयो?">How did you find this site?</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span data-en="Enter Portfolio" data-ne="पोर्टफोलियो प्रविष्ट गर्नुहोस्">Enter Portfolio</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
