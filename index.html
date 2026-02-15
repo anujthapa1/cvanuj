@@ -145,6 +145,7 @@
                 <h2 data-en="About Me" data-ne="मेरो बारेमा">About Me</h2>
             </div>
             <div class="about-content">
+                <div class="about-text">
                     <p data-en="I am currently pursuing my BSc (Hons) in Computing at Informatics College Pokhara, affiliated with London Metropolitan University. My passion lies in solving complex problems through technology."
                        data-ne="म हाल लन्डन मेट्रोपोलिटन युनिभर्सिटीसँग सम्बन्धन प्राप्त इन्फर्मेटिक्स कलेज पोखरामा बीएससी (अनर्स) कम्प्युटिङ अध्ययन गरिरहेको छु। मेरो लगाव टेक्नोलोजी मार्फत जटिल समस्याहरू समाधान गर्नमा छ।">
                         I am currently pursuing my <strong>BSc (Hons) in Computing</strong> at Informatics College Pokhara, 
@@ -173,109 +174,36 @@
                         <img src="images/signature.png" alt="Signature" class="signature-img">
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="game-container" data-aos="fade-left">
-                    <div class="game-invite">
-                        <p class="invite-text" data-en="I made this game if you are bored here. You can try and engage yourself!" data-ne="यदि तपाईं यहाँ बोर हुनुहुन्छ भने मैले यो खेल बनाएको छु। तपाईं प्रयास गर्न र आफूलाई व्यस्त राख्न सक्नुहुन्छ!">
-                            I made this game if you are bored here. You can try and engage yourself!
-                        </p>
-                        <button id="start-game-btn" class="btn btn-outline small-btn" data-en="Play Game" data-ne="खेल खेल्नुहोस्">Play Game</button>
-                    </div>
-                    
-                    <div class="game-board-wrapper" style="display: none;">
+
+                <div class="about-extra" data-aos="fade-left">
+                    <div class="game-container dino-game-container" data-aos="fade-up">
                         <div class="game-header">
-                            <span class="moves-count" data-en="Moves: 0" data-ne="चालहरू: ०">Moves: 0</span>
-                            <button id="restart-game-btn" class="btn-icon" title="Restart"><i class="fas fa-redo"></i></button>
-                        </div>
-                        <div class="memory-game-board">
-                            <!-- Cards will be injected by JS -->
-=======
-                <div class="about-stats" data-aos="fade-left">
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="2+" data-ne="२+">2+</span>
-                        <span class="stat-label" data-en="Years Exp" data-ne="वर्ष अनुभव">Years Exp</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="10+" data-ne="१०+">10+</span>
-                        <span class="stat-label" data-en="Projects" data-ne="आयोजनाहरू">Projects</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" data-en="5+" data-ne="५+">5+</span>
-                        <span class="stat-label" data-en="Clients" data-ne="ग्राहकहरू">Clients</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education / Resume Section -->
-    <!-- Education Section Removed -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="section bg-alt">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="subtitle" data-en="02. Expertise" data-ne="०२. विशेषज्ञता">02. Expertise</span>
-                <h2 data-en="My Skills" data-ne="मेरो सीपहरू">My Skills</h2>
-            </div>
-            <div class="skills-grid">
-                <!-- Technical Skills -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3 data-en="Technical" data-ne="प्राविधिक">Technical</h3>
-                    <div class="skill-bars">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>HTML5 & CSS3</span>
-                                <span>80%</span>
+                            <div class="score-container">
+                                <span class="label" data-en="Score: " data-ne="अंक: ">Score: </span>
+                                <span id="dino-score">0</span>
                             </div>
-                            <div class="progress-line" data-percent="80%">
-                                <span style="width: 80%"></span>
+                            <div class="high-score-container">
+                                <span class="label" data-en="High Score: " data-ne="उच्च अंक: ">High Score: </span>
+                                <span id="dino-high-score">0</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>JavaScript</span>
-                                <span>30%</span>
+                        <div id="dino-game-wrapper">
+                            <canvas id="dino-canvas"></canvas>
+                            <div id="dino-start-overlay" class="game-overlay">
+                                <p data-en="Press Space or Click to Start" data-ne="सुरु गर्न स्पेस थिच्नुहोस् वा क्लिक गर्नुहोस्">Press Space or Click to Start</p>
+                                <i class="fas fa-play"></i>
                             </div>
-                            <div class="progress-line" data-percent="30%">
-                                <span style="width: 30%"></span>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Python</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="progress-line" data-percent="70%">
-                                <span style="width: 70%"></span>
+                            <div id="dino-game-over-overlay" class="game-overlay" style="display: none;">
+                                <h3 data-en="GAME OVER" data-ne="खेल समाप्त">GAME OVER</h3>
+                                <button id="dino-restart-btn" class="btn btn-primary btn-sm" data-en="Restart" data-ne="पुन: सुरु गर्नुहोस्">Restart</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Creative Skills -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3 data-en="Creative" data-ne="रचनात्मक">Creative</h3>
-                     <div class="circular-skills">
-                        <div class="circle-item">
-                            <div class="circle" data-dots="85">
-                                <div class="points" style="--i:85"></div>
-                            </div>
-                            <div class="text">
-                                <big>85%</big>
-                                <small data-en="Photography" data-ne="फोटोग्राफी">Photography</small>
-                            </div>
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
-                        </div>
+                        <p class="game-hint" data-en="Use Spacebar or Click to Jump!" data-ne="उफ्रिन स्पेसबार वा क्लिक प्रयोग गर्नुहोस्!">Use Spacebar or Click to Jump!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-<<<<<<< HEAD
-    <!-- Education / Resume Section -->
-    <!-- Education Section Removed -->
 
     <!-- Skills Section -->
     <section id="skills" class="section bg-alt">
@@ -334,49 +262,10 @@
                         </div>
                     </div>
                 </div>
-=======
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="subtitle" data-en="03. What I Do" data-ne="०३. म के गर्छु">03. What I Do</span>
-                <h2 data-en="Services" data-ne="सेवाहरू">Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="icon-box">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 data-en="Web Development" data-ne="वेब विकास">Web Development</h3>
-                    <p data-en="Modern, responsive websites built with the latest technologies." data-ne="नवीनतम प्रविधिहरूसँग निर्मित आधुनिक, उत्तरदायी वेबसाइटहरू।">Modern, responsive websites built with the latest technologies.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h3 data-en="Software Development" data-ne="सफ्टवेयर विकास">Software Development</h3>
-                    <p data-en="Building robust applications to solve real-world problems." data-ne="वास्तविक विश्वका समस्याहरू समाधान गर्न बलियो अनुप्रयोगहरू निर्माण गर्दै।">Building robust applications to solve real-world problems.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3 data-en="Online Marketing" data-ne="अनलाइन मार्केटिङ">Online Marketing</h3>
-                    <p data-en="Strategies to grow your brand and reach your target audience." data-ne="तपाईंको ब्रान्ड बढाउन र लक्षित दर्शकहरूसम्म पुग्न रणनीतिहरू।">Strategies to grow your brand and reach your target audience.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3 data-en="SEO Optimization" data-ne="एसईओ अप्टिमाइजेसन">SEO Optimization</h3>
-                    <p data-en="Improve your search engine ranking and drive organic traffic." data-ne="तपाईंको खोज इन्जिन र्याङ्किङ्ग सुधार गर्नुहोस् र अर्गानिक ट्राफिक बढाउनुहोस्।">Improve your search engine ranking and drive organic traffic.</p>
-                </div>
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
@@ -430,21 +319,6 @@
                 <button class="filter-btn" data-filter="branding" data-en="Branding" data-ne="ब्रान्डिङ">Branding</button>
                 <button class="filter-btn" data-filter="websites" data-en="Websites" data-ne="वेबसाइटहरू">Websites</button>
             </div>
-=======
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section bg-alt">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="subtitle" data-en="04. Gallery" data-ne="०४. ग्यालेरी">04. Gallery</span>
-                <h2 data-en="My Work" data-ne="मेरो काम">My Work</h2>
-            </div>
-            
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all" data-en="All" data-ne="सबै">All</button>
-                <button class="filter-btn" data-filter="branding" data-en="Branding" data-ne="ब्रान्डिङ">Branding</button>
-                <button class="filter-btn" data-filter="websites" data-en="Websites" data-ne="वेबसाइटहरू">Websites</button>
-            </div>
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 
             <div class="portfolio-grid">
                 <!-- Project 1 -->

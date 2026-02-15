@@ -269,9 +269,7 @@ $(document).ready(function () {
     return new Date(utc + (3600000 * 5.75));
   }
 
-<<<<<<< HEAD
 
-=======
   function updateThemeByTime() {
     // Only auto-switch if user hasn't manually toggled (optional, but good UX)
     // For this request, we'll enforce it on load or loop, but let's respect manual toggle if we want.
@@ -301,7 +299,6 @@ $(document).ready(function () {
 
   // Call immediately
   updateThemeByTime();
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 
   if ($('#particles-js').length) {
     const nepalTime = getNepalTime();
@@ -574,143 +571,177 @@ $(document).ready(function () {
     });
   });
 
-<<<<<<< HEAD
   /* -----------------------------------
-     13. Interactive Memory Game
+     13. Interactive Dino Game
   ----------------------------------- */
-  const cardsArray = [
-    { name: 'html', icon: '<i class="fab fa-html5"></i>' },
-    { name: 'css', icon: '<i class="fab fa-css3-alt"></i>' },
-    { name: 'js', icon: '<i class="fab fa-js"></i>' },
-    { name: 'react', icon: '<i class="fab fa-react"></i>' },
-    { name: 'python', icon: '<i class="fab fa-python"></i>' },
-    { name: 'node', icon: '<i class="fab fa-node"></i>' },
-  ];
+  const canvas = document.getElementById('dino-canvas');
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  const scoreEl = document.getElementById('dino-score');
+  const highScoreEl = document.getElementById('dino-high-score');
+  const startOverlay = document.getElementById('dino-start-overlay');
+  const gameOverOverlay = document.getElementById('dino-game-over-overlay');
+  const restartBtn = document.getElementById('dino-restart-btn');
 
-  let gameGrid = [...cardsArray, ...cardsArray];
-  let firstCard = null;
-  let secondCard = null;
-  let lockBoard = false;
-  let moves = 0;
-  let matchedPairs = 0;
+  if (canvas && ctx) {
+    let gameRunning = false;
+    let score = 0;
+    let highScore = localStorage.getItem('dinoHighScore') || 0;
+    if (highScoreEl) highScoreEl.textContent = highScore;
 
-  const gameBoard = document.querySelector('.memory-game-board');
-  const movesDisplay = document.querySelector('.moves-count');
-  const startGameBtn = document.getElementById('start-game-btn');
-  const restartGameBtn = document.getElementById('restart-game-btn');
-  const gameInvite = document.querySelector('.game-invite');
-  const gameWrapper = document.querySelector('.game-board-wrapper');
+    const dino = {
+      x: 50,
+      y: 0,
+      width: 30,
+      height: 30,
+      dy: 0,
+      jumpForce: 10,
+      gravity: 0.6,
+      grounded: false,
+      color: '#ff4081'
+    };
 
-  function shuffle(array) {
-    return array.sort(() => 0.5 - Math.random());
-  }
+    let obstacles = [];
+    let gameSpeed = 5;
+    let spawnTimer = 0;
 
-  function createBoard() {
-    if (!gameBoard) return;
-    gameBoard.innerHTML = '';
-    shuffle(gameGrid).forEach(item => {
-      const card = document.createElement('div');
-      card.classList.add('memory-card');
-      card.dataset.name = item.name;
-
-      const frontFace = document.createElement('div');
-      frontFace.classList.add('front-face');
-      frontFace.innerHTML = item.icon;
-
-      const backFace = document.createElement('div');
-      backFace.classList.add('back-face');
-      backFace.innerHTML = '<i class="fas fa-code"></i>';
-
-      card.appendChild(frontFace);
-      card.appendChild(backFace);
-
-      card.addEventListener('click', flipCard);
-      gameBoard.appendChild(card);
-    });
-  }
-
-  function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
-
-    this.classList.add('flip');
-
-    if (!firstCard) {
-      firstCard = this;
-      return;
+    function resizeCanvas() {
+      const wrapper = canvas.parentElement;
+      canvas.width = wrapper.clientWidth;
+      canvas.height = wrapper.clientHeight;
+      dino.y = canvas.height - dino.height - 10;
     }
 
-    secondCard = this;
-    moves++;
-    updateMovesDisplay();
-    checkForMatch();
-  }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-  function checkForMatch() {
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-    isMatch ? disableCards() : unflipCards();
-  }
-
-  function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-    resetBoard();
-    matchedPairs++;
-    if (matchedPairs === cardsArray.length) {
-      setTimeout(() => {
-        alert('You won! Great memory!');
-      }, 500);
+    function startGame() {
+      gameRunning = true;
+      score = 0;
+      if (scoreEl) scoreEl.textContent = score;
+      obstacles = [];
+      gameSpeed = 5;
+      spawnTimer = 0;
+      dino.y = canvas.height - dino.height - 10;
+      dino.dy = 0;
+      if (startOverlay) startOverlay.style.display = 'none';
+      if (gameOverOverlay) gameOverOverlay.style.display = 'none';
+      requestAnimationFrame(gameLoop);
     }
-  }
 
-  function unflipCards() {
-    lockBoard = true;
-    setTimeout(() => {
-      firstCard.classList.remove('flip');
-      secondCard.classList.remove('flip');
-      resetBoard();
-    }, 1000);
-  }
-
-  function resetBoard() {
-    [firstCard, secondCard] = [null, null];
-    lockBoard = false;
-  }
-
-  function updateMovesDisplay() {
-    if (movesDisplay) {
-      // Simple localization for moves
-      const currentLang = localStorage.getItem('lang') || 'en';
-      if (currentLang === 'ne') {
-        // Convert to Nepali numerals roughly
-        const movesNe = moves.toString().replace(/\d/g, d => "०१२३४५६७८९"[d]);
-        movesDisplay.textContent = `चालहरू: ${movesNe}`;
-      } else {
-        movesDisplay.textContent = `Moves: ${moves}`;
+    function gameOver() {
+      gameRunning = false;
+      if (gameOverOverlay) gameOverOverlay.style.display = 'flex';
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('dinoHighScore', highScore);
+        if (highScoreEl) highScoreEl.textContent = highScore;
       }
     }
-  }
 
-  if (startGameBtn) {
-    startGameBtn.addEventListener('click', () => {
-      gameInvite.style.display = 'none';
-      gameWrapper.style.display = 'block';
-      moves = 0;
-      matchedPairs = 0;
-      updateMovesDisplay();
-      createBoard();
+    function jump() {
+      if (!gameRunning) {
+        if (gameOverOverlay && gameOverOverlay.style.display === 'flex') return;
+        startGame();
+      } else if (dino.grounded) {
+        dino.dy = -dino.jumpForce;
+        dino.grounded = false;
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        const isInViewport = (el) => {
+          const rect = el.getBoundingClientRect();
+          return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        };
+        if (isInViewport(canvas)) {
+           e.preventDefault();
+           jump();
+        }
+      }
     });
+
+    canvas.parentElement.addEventListener('click', jump);
+    if (restartBtn) {
+      restartBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        startGame();
+      });
+    }
+
+    function spawnObstacle() {
+      const size = Math.random() * 20 + 20;
+      obstacles.push({
+        x: canvas.width,
+        y: canvas.height - size - 10,
+        width: 15,
+        height: size,
+        color: '#00bcd4'
+      });
+    }
+
+    function gameLoop() {
+      if (!gameRunning) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Ground
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height - 10);
+      ctx.lineTo(canvas.width, canvas.height - 10);
+      ctx.stroke();
+
+      // Dino Physics
+      dino.dy += dino.gravity;
+      dino.y += dino.dy;
+
+      if (dino.y + dino.height > canvas.height - 10) {
+        dino.y = canvas.height - dino.height - 10;
+        dino.dy = 0;
+        dino.grounded = true;
+      }
+
+      // Draw Dino
+      ctx.fillStyle = dino.color;
+      ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(dino.x + dino.width - 10, dino.y + 5, 5, 5);
+
+      // Obstacles
+      spawnTimer++;
+      if (spawnTimer > Math.max(60, 100 - gameSpeed * 2)) {
+        spawnObstacle();
+        spawnTimer = 0;
+      }
+
+      for (let i = obstacles.length - 1; i >= 0; i--) {
+        const o = obstacles[i];
+        o.x -= gameSpeed;
+
+        ctx.fillStyle = o.color;
+        ctx.fillRect(o.x, o.y, o.width, o.height);
+
+        // Collision Detection
+        if (
+          dino.x < o.x + o.width &&
+          dino.x + dino.width > o.x &&
+          dino.y < o.y + o.height &&
+          dino.y + dino.height > o.y
+        ) {
+          gameOver();
+        }
+
+        if (o.x + o.width < 0) {
+          obstacles.splice(i, 1);
+          score++;
+          if (scoreEl) scoreEl.textContent = score;
+          if (score % 5 === 0) gameSpeed += 0.2;
+        }
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
   }
 
-  if (restartGameBtn) {
-    restartGameBtn.addEventListener('click', () => {
-      moves = 0;
-      matchedPairs = 0;
-      updateMovesDisplay();
-      createBoard();
-    });
-  }
-
-=======
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 });

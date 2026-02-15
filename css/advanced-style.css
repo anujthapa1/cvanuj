@@ -734,127 +734,105 @@ body.light-mode .signature-img {
     filter: invert(0);
 }
 
-<<<<<<< HEAD
-/* Game Styles */
-.game-container {
+/* Dino Game Styles */
+.dino-game-container {
     background: var(--card-bg);
-    padding: 30px;
+    padding: 25px;
     border-radius: var(--border-radius);
-    text-align: center;
     border: 1px solid var(--glass-border);
-    transition: var(--transition);
-    min-height: 300px;
+    position: relative;
+    overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
 }
 
-.game-container:hover {
+.dino-game-container:hover {
     border-color: var(--primary-color);
 }
 
-.game-invite {
+.game-header {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
-.invite-text {
-    font-size: 1.1rem;
-    color: var(--text-color);
+.score-container, .high-score-container {
+    display: flex;
+    gap: 8px;
+}
+
+#dino-score, #dino-high-score {
+    color: var(--secondary-color);
+}
+
+#dino-game-wrapper {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+#dino-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.game-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.game-overlay p {
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.game-overlay i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+.game-hint {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
     font-style: italic;
 }
 
-.small-btn {
+.btn-sm {
     padding: 8px 20px;
     font-size: 0.9rem;
 }
 
-.game-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.moves-count {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    color: var(--secondary-color);
-}
-
-.btn-icon {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.btn-icon:hover {
-    color: var(--primary-color);
-    transform: rotate(180deg);
-}
-
-.memory-game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    width: 100%;
-    max-width: 300px;
-}
-
-.memory-card {
-    height: 60px;
-    position: relative;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    cursor: pointer;
-}
-
-.memory-card:active {
-    transform: scale(0.97);
-    transition: transform 0.2s;
-}
-
-.memory-card.flip {
-    transform: rotateY(180deg);
-}
-
-.memory-card .front-face,
-.memory-card .back-face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 8px;
-    background: var(--bg-alt);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backface-visibility: hidden;
-    border: 1px solid var(--glass-border);
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.memory-card .front-face {
-    transform: rotateY(180deg);
-    background: var(--card-bg);
-}
-
-.memory-card .back-face {
-    background: var(--bg-color);
-    color: var(--text-muted);
-}
-
-=======
 /* Skills Section */
->>>>>>> e072482afeda2b6e81d0877edb3675dd6a48f278
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
