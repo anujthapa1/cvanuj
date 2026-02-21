@@ -270,36 +270,6 @@ $(document).ready(function () {
   }
 
 
-  function updateThemeByTime() {
-    // Only auto-switch if user hasn't manually toggled (optional, but good UX)
-    // For this request, we'll enforce it on load or loop, but let's respect manual toggle if we want.
-    // The user said "make sure the theme change account to time", implying strictness.
-    // Let's set it on load.
-
-    const nepalTime = getNepalTime();
-    const hours = nepalTime.getHours();
-    const isDay = hours >= 6 && hours < 18;
-
-    // We can use a flag to track if we've already set it this session to avoid overriding manual toggle constantly
-    if (!sessionStorage.getItem('themeSet')) {
-      if (isDay) {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light-mode');
-        $('#theme-toggle i').removeClass('fa-moon').addClass('fa-sun');
-      } else {
-        document.body.classList.remove('light-mode');
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        $('#theme-toggle i').removeClass('fa-sun').addClass('fa-moon');
-      }
-      sessionStorage.setItem('themeSet', 'true');
-    }
-  }
-
-  // Call immediately
-  updateThemeByTime();
-
   if ($('#particles-js').length) {
     const nepalTime = getNepalTime();
     const month = nepalTime.getMonth(); // 0 = Jan, 11 = Dec
