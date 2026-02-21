@@ -145,6 +145,190 @@ $(document).ready(function () {
     }
   }
 
+  // Initialize Language
+  updateLanguage(currentLang);
+
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ne' : 'en';
+    updateLanguage(currentLang);
+  });
+
+
+  /* -----------------------------------
+     3. Navbar Scroll Effect
+  ----------------------------------- */
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+      $('.navbar').addClass('scrolled');
+      $('.navbar').css('background', 'var(--glass-bg)');
+    } else {
+      $('.navbar').removeClass('scrolled');
+    }
+
+    // Active Link Switching
+    var scrollPos = $(window).scrollTop() + 100;
+    $('section').each(function () {
+      var currLink = $('.nav-link[href="#' + $(this).attr('id') + '"]');
+      var refElement = $(this);
+      if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        $('.nav-link').removeClass('active');
+        currLink.addClass('active');
+      }
+    });
+  });
+
+  /* -----------------------------------
+     4. Mobile Menu
+  ----------------------------------- */
+  $('.mobile-menu-btn').click(function () {
+    $('.mobile-menu-overlay').addClass('active');
+  });
+
+  $('.close-menu, .mobile-links a').click(function () {
+    $('.mobile-menu-overlay').removeClass('active');
+  });
+
+  /* -----------------------------------
+     5. Dynamic Environment & Particles (Weather Based)
+  ----------------------------------- */
+  async function getLocation() {
+    return new Promise((resolve) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            resolve({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude
+            });
+          },
+          () => {
+            // Fallback to IP if geolocation is denied
+            resolve(getIPLocation());
+          },
+          { timeout: 5000 }
+        );
+      } else {
+        resolve(getIPLocation());
+      }
+    });
+  }
+
+  async function getIPLocation() {
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      const data = await response.json();
+      return {
+        lat: data.latitude,
+        lon: data.longitude
+      };
+    } catch (error) {
+      console.error("IP Location Error:", error);
+      return { lat: 28.2333, lon: 83.9833 }; // Default to Pokhara, Nepal
+    }
+  }
+
+  async function fetchWeather(lat, lon) {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+      const response = await fetch(url);
+      return await response.json();
+    } catch (error) {
+      console.error("Weather Fetch Error:", error);
+      return null;
+    }
+  }
+
+  const particleConfigs = {
+    sunny: {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#00bcd4", "#ff4081"] },
+        "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
+        "opacity": { "value": 0.5, "random": true, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } },
+        "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+        "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+        "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+      },
+      "retina_detect": true
+    },
+    cloudy: {
+      "particles": {
+        "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.2, "random": true, "anim": { "enable": false } },
+        "size": { "value": 60, "random": true, "anim": { "enable": false } },
+        "line_linked": { "enable": false },
+        "move": { "enable": true, "speed": 1, "direction": "right", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+      },
+      "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
+      "retina_detect": true
+    },
+    rainy: {
+      "particles": {
+        "number": { "value": 400, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00bcd4" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.6, "random": false, "anim": { "enable": false } },
+        "size": { "value": 2, "random": true, "anim": { "enable": false } },
+        "line_linked": { "enable": false },
+        "move": { "enable": true, "speed": 20, "direction": "bottom", "random": false, "straight": true, "out_mode": "out", "bounce": false }
+      },
+      "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
+      "retina_detect": true
+    },
+    snowy: {
+      "particles": {
+        "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.8, "random": true, "anim": { "enable": false } },
+        "size": { "value": 5, "random": true, "anim": { "enable": false } },
+        "line_linked": { "enable": false },
+        "move": { "enable": true, "speed": 2, "direction": "bottom", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+        "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
+      },
+      "retina_detect": true
+    }
+  };
+
+  async function initWeatherTheme() {
+    if (!$('#particles-js').length) return;
+
+    const location = await getLocation();
+    const weather = await fetchWeather(location.lat, location.lon);
+
+    let theme = 'sunny';
+    if (weather && weather.current_weather) {
+      const code = weather.current_weather.weathercode;
+      // WMO Weather interpretation codes (WW)
+      if (code === 0 || code === 1) theme = 'sunny';
+      else if ([2, 3, 45, 48].includes(code)) theme = 'cloudy';
+      else if ([51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99].includes(code)) theme = 'rainy';
+      else if ([71, 73, 75, 77, 85, 86].includes(code)) theme = 'snowy';
+    }
+
+    // Apply Weather Class to Body
+    $('body').removeClass('weather-sunny weather-cloudy weather-rainy weather-snowy');
+    $('body').addClass(`weather-${theme}`);
+
+    // Initialize Particles
+    if (window.particlesJS) {
+      particlesJS('particles-js', particleConfigs[theme]);
+    }
+  }
+
+  initWeatherTheme();
+
   /* -----------------------------------
      X. Analog Clock & Date (Nepal Time)
   ----------------------------------- */
@@ -192,24 +376,11 @@ $(document).ready(function () {
       enDateEl.textContent = nepalTime.toLocaleDateString('en-US', options);
     }
 
-    // Simple Nepali Date Mapping (Approximate or use library if strictly required, using generic text for now or simple conversion)
-    // Since we don't have a library, we will display the current year/month in Nepali numerals/text if possible, 
-    // or just keep English date for now as the user didn't provide a library. 
-    // BUT, let's try to map the numbers to Nepali at least.
     if (neDateEl) {
       const year = nepalTime.getFullYear();
       const month = nepalTime.getMonth() + 1; // 1-12
       const day = nepalTime.getDate();
-
-      // English to Nepali Number
       const toNepaliNum = (num) => num.toString().replace(/\d/g, d => "०१२३४५६७८९"[d]);
-
-      // Rough BS conversion (AD + ~56y 8m 15d) - this is complex without a library.
-      // Let's display AD date in Nepali script for accuracy, or just the day/time.
-      // The user asked for "Nepal data and eng date". Usually implies BS date. 
-      // Without a library (like nepali-date-converter), accurate BS date is hard.
-      // I'll stick to formatting the AD date in Nepali script to be safe and accurate to *time*.
-
       neDateEl.textContent = `${toNepaliNum(year)} / ${toNepaliNum(month)} / ${toNepaliNum(day)}`;
     }
   }
@@ -217,126 +388,6 @@ $(document).ready(function () {
   setInterval(updateClock, 1000);
   updateClock(); // Initial call
 
-  // Initialize Language
-  updateLanguage(currentLang);
-
-  langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ne' : 'en';
-    updateLanguage(currentLang);
-  });
-
-
-  /* -----------------------------------
-     3. Navbar Scroll Effect
-  ----------------------------------- */
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 50) {
-      $('.navbar').addClass('scrolled');
-      $('.navbar').css('background', 'var(--glass-bg)');
-    } else {
-      $('.navbar').removeClass('scrolled');
-    }
-
-    // Active Link Switching
-    var scrollPos = $(window).scrollTop() + 100;
-    $('section').each(function () {
-      var currLink = $('.nav-link[href="#' + $(this).attr('id') + '"]');
-      var refElement = $(this);
-      if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-        $('.nav-link').removeClass('active');
-        currLink.addClass('active');
-      }
-    });
-  });
-
-  /* -----------------------------------
-     4. Mobile Menu
-  ----------------------------------- */
-  $('.mobile-menu-btn').click(function () {
-    $('.mobile-menu-overlay').addClass('active');
-  });
-
-  $('.close-menu, .mobile-links a').click(function () {
-    $('.mobile-menu-overlay').removeClass('active');
-  });
-
-  /* -----------------------------------
-     5. Dynamic Environment & Particles
-  ----------------------------------- */
-  function getNepalTime() {
-    const now = new Date();
-    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-    return new Date(utc + (3600000 * 5.75));
-  }
-
-
-  if ($('#particles-js').length) {
-    const nepalTime = getNepalTime();
-    const month = nepalTime.getMonth(); // 0 = Jan, 11 = Dec
-
-    let particleConfig = {};
-
-    // Winter: Dec (11), Jan (0), Feb (1) -> Snow
-    if (month === 11 || month === 0 || month === 1) {
-      // Snow Config
-      particleConfig = {
-        "particles": {
-          "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
-          "color": { "value": "#ffffff" },
-          "shape": { "type": "circle" },
-          "opacity": { "value": 0.8, "random": true, "anim": { "enable": false } },
-          "size": { "value": 5, "random": true, "anim": { "enable": false } },
-          "line_linked": { "enable": false },
-          "move": { "enable": true, "speed": 2, "direction": "bottom", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-          "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
-        },
-        "retina_detect": true
-      };
-    }
-    // Monsoon: Jun (5), Jul (6), Aug (7) -> Rain
-    else if (month >= 5 && month <= 7) {
-      // Rain Config
-      particleConfig = {
-        "particles": {
-          "number": { "value": 400, "density": { "enable": true, "value_area": 800 } },
-          "color": { "value": "#00bcd4" },
-          "shape": { "type": "circle" }, // We can't do lines easily in v2 without custom shape, stick to fast moving dots
-          "opacity": { "value": 0.6, "random": false, "anim": { "enable": false } },
-          "size": { "value": 2, "random": true, "anim": { "enable": false } },
-          "line_linked": { "enable": false },
-          "move": { "enable": true, "speed": 20, "direction": "bottom", "random": false, "straight": true, "out_mode": "out", "bounce": false }
-        },
-        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
-        "retina_detect": true
-      };
-    }
-    // Default: Tech Constellation
-    else {
-      particleConfig = {
-        "particles": {
-          "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-          "color": { "value": ["#00bcd4", "#ff4081"] },
-          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
-          "opacity": { "value": 0.5, "random": true, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } },
-          "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
-          "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
-          "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-          "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
-        },
-        "retina_detect": true
-      };
-    }
-
-    particlesJS('particles-js', particleConfig);
-  }
 
   /* -----------------------------------
      6. Custom Cursor
@@ -344,20 +395,22 @@ $(document).ready(function () {
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorOutline = document.querySelector('.cursor-outline');
 
-  window.addEventListener('mousemove', function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
+  if (cursorDot && cursorOutline) {
+    window.addEventListener('mousemove', function (e) {
+      const posX = e.clientX;
+      const posY = e.clientY;
 
-    cursorDot.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
-    cursorOutline.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
-  });
+      cursorDot.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
+      cursorOutline.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
+    });
 
-  $('a, button, .service-card, .portfolio-wrap, input, textarea').mouseenter(function () {
-    $('.cursor-outline').css('transform', 'scale(1.5)');
-  });
-  $('a, button, .service-card, .portfolio-wrap, input, textarea').mouseleave(function () {
-    $('.cursor-outline').css('transform', 'scale(1)');
-  });
+    $('a, button, .service-card, .portfolio-wrap, input, textarea').mouseenter(function () {
+      $('.cursor-outline').css('transform', 'scale(1.5)');
+    });
+    $('a, button, .service-card, .portfolio-wrap, input, textarea').mouseleave(function () {
+      $('.cursor-outline').css('transform', 'scale(1)');
+    });
+  }
 
 
   /* -----------------------------------
@@ -380,11 +433,13 @@ $(document).ready(function () {
   /* -----------------------------------
      8. GLightbox
   ----------------------------------- */
-  const lightbox = GLightbox({
-    touchNavigation: true,
-    loop: true,
-    autoplayVideos: true
-  });
+  if (window.GLightbox) {
+    const lightbox = GLightbox({
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true
+    });
+  }
 
   /* -----------------------------------
      9. Skill Bars Animation
