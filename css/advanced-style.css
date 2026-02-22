@@ -35,6 +35,30 @@ body.light-mode {
     --card-bg: #ffffff;
 }
 
+/* Weather Specific Themes */
+body.weather-cloudy.dark-mode {
+    --bg-color: #1e293b;
+    --bg-alt: #334155;
+    --primary-color: #94a3b8;
+}
+
+body.weather-rainy.dark-mode {
+    --bg-color: #0f172a;
+    --primary-color: #00bcd4;
+    --secondary-color: #38bdf8;
+}
+
+body.weather-snowy.dark-mode {
+    --bg-color: #1a202c;
+    --primary-color: #e2e8f0;
+    --secondary-color: #90cdf4;
+}
+
+body.weather-snowy.light-mode {
+    --bg-color: #f0f9ff;
+    --primary-color: #0ea5e9;
+}
+
 /* Reset & Global */
 * {
     margin: 0;
