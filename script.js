@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initHeroWebGL();
     initCursorGlow();
+    renderMethodology();
     renderFeaturedProjects('all');
     renderAllProjectsArchive();
     renderArticles();
@@ -233,6 +234,25 @@ function initCursorGlow() {
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
+}
+
+/* ==========================================================================
+   Engineering Methodology ("How I Build")
+   ========================================================================== */
+function renderMethodology() {
+    const grid = document.querySelector('.methodology-grid');
+    if (!grid || typeof HOW_I_BUILD === 'undefined') return;
+
+    grid.innerHTML = HOW_I_BUILD.map(item => `
+        <article class="methodology-card" role="listitem">
+            <div class="methodology-step">
+                <span class="methodology-step-num">${escapeHtml(item.number)}</span>
+                <span class="methodology-title">${escapeHtml(item.step)}</span>
+            </div>
+            <div class="methodology-tagline">${escapeHtml(item.tagline)}</div>
+            <p class="methodology-desc">${escapeHtml(item.description)}</p>
+        </article>
+    `).join('');
 }
 
 /* ==========================================================================
@@ -845,9 +865,13 @@ function initStatCounters() {
 }
 
 function animateCount(el, target) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = target;
+        return;
+    }
     let current = 0;
-    const duration = 1200;
-    const stepTime = 20;
+    const duration = 1000;
+    const stepTime = 25;
     const steps = duration / stepTime;
     const increment = target / steps;
 

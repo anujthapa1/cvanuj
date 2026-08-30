@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANUJ THAPA — Developer &amp; Digital Creator</title>
+    <title>Anuj Thapa — Software Developer &amp; Computing Student</title>
     
     <!-- Primary Meta Tags -->
-    <meta name="title" content="ANUJ THAPA — Developer &amp; Digital Creator">
-    <meta name="description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects including Virtual Campus 3D, Bus Routes Nepal, LPG Cylinder Management System, and PGP Delivery Platform.">
-    <meta name="keywords" content="Anuj Thapa, Software Developer, Full Stack Developer, Three.js, React, Java, TypeScript, Next.js, Pokhara Nepal, GitHub Projects, Virtual Campus 3D, Bus Routes Nepal, LPG Cylinder Management">
+    <meta name="title" content="Anuj Thapa — Software Developer &amp; Computing Student">
+    <meta name="description" content="Software Developer &amp; Computing Student at Informatics College Pokhara. Building practical software, interactive 3D WebGL experiences, Java OOP systems, and civic transport platforms with real GitHub codebases.">
+    <meta name="keywords" content="Anuj Thapa, Software Developer, Computing Student, Three.js, React, Java, TypeScript, Next.js, Pokhara Nepal, GitHub Projects, Virtual Campus 3D, Bus Routes Nepal, LPG Cylinder Management">
     <meta name="author" content="Anuj Thapa">
     <meta name="robots" content="index, follow">
     
@@ -18,16 +18,16 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thapaanuj.com.np/">
-    <meta property="og:title" content="ANUJ THAPA — Developer &amp; Digital Creator">
-    <meta property="og:description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects.">
+    <meta property="og:title" content="Anuj Thapa — Software Developer &amp; Computing Student">
+    <meta property="og:description" content="I build practical software, interactive web experiences, and systems that solve real-world problems. Explore my real GitHub projects.">
     <meta property="og:image" content="https://thapaanuj.com.np/images/avatar.jpg">
     <meta property="og:site_name" content="Anuj Thapa Portfolio">
     
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://thapaanuj.com.np/">
-    <meta name="twitter:title" content="ANUJ THAPA — Developer &amp; Digital Creator">
-    <meta name="twitter:description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects.">
+    <meta name="twitter:title" content="Anuj Thapa — Software Developer &amp; Computing Student">
+    <meta name="twitter:description" content="I build practical software, interactive web experiences, and systems that solve real-world problems. Explore my real GitHub projects.">
     <meta name="twitter:image" content="https://thapaanuj.com.np/images/avatar.jpg">
     
     <!-- Favicon & Icons -->
@@ -45,44 +45,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=3.0">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Anuj Thapa",
-        "url": "https://thapaanuj.com.np/",
-        "image": "https://thapaanuj.com.np/images/avatar.jpg",
-        "sameAs": [
-            "https://github.com/anujthapa1",
-            "https://linkedin.com/in/anujthapa444",
-            "https://instagram.com/anujthapa444"
-        ],
-        "jobTitle": "Developer & Digital Creator",
-        "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "Informatics College Pokhara"
-        },
-        "knowsAbout": [
-            "Software Development",
-            "Full-Stack Web Development",
-            "Three.js",
-            "React",
-            "Java",
-            "TypeScript",
-            "Python",
-            "Cybersecurity",
-            "SEO"
-        ],
-        "email": "mailto:thapapabitraanuj@gmail.com",
-        "telephone": "+9779865117237",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Pokhara",
-            "addressCountry": "Nepal"
-        }
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://thapaanuj.com.np/#person",
+                "name": "Anuj Thapa",
+                "url": "https://thapaanuj.com.np/",
+                "image": "https://thapaanuj.com.np/images/avatar.jpg",
+                "sameAs": [
+                    "https://github.com/anujthapa1",
+                    "https://linkedin.com/in/anujthapa444",
+                    "https://instagram.com/anujthapa444"
+                ],
+                "jobTitle": "Software Developer & Computing Student",
+                "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Informatics College Pokhara"
+                },
+                "knowsAbout": [
+                    "Software Development",
+                    "Full-Stack Web Development",
+                    "Three.js",
+                    "WebGL",
+                    "React",
+                    "Java",
+                    "TypeScript",
+                    "Python",
+                    "Cybersecurity",
+                    "SEO"
+                ],
+                "email": "mailto:thapapabitraanuj@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Pokhara",
+                    "addressCountry": "Nepal"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://thapaanuj.com.np/#website",
+                "url": "https://thapaanuj.com.np/",
+                "name": "Anuj Thapa — Portfolio",
+                "description": "Portfolio of Anuj Thapa showcasing verified GitHub software projects and technical case studies.",
+                "publisher": {
+                    "@id": "https://thapaanuj.com.np/#person"
+                }
+            }
+        ]
     }
     </script>
 </head>
@@ -104,6 +119,7 @@
                     <ul class="nav-links" role="list">
                         <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
                         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                        <li><a href="#methodology" class="nav-link" data-section="methodology">How I Build</a></li>
                         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
                         <li><a href="#articles" class="nav-link" data-section="articles">Case Studies</a></li>
                         <li><a href="#skills" class="nav-link" data-section="skills">Tech Stack</a></li>
@@ -147,11 +163,15 @@
                 <div class="hero-text">
                     <p class="hero-greeting">Hello, I'm</p>
                     <h1 id="hero-title" class="hero-name">ANUJ THAPA</h1>
-                    <p class="hero-tagline">Developer • Digital Creator • Problem Solver</p>
-                    <p class="hero-description">I build digital experiences, software, and interactive products that turn ideas into reality.</p>
+                    <p class="hero-tagline">Software Developer &amp; Computing Student</p>
+                    <p class="hero-description">I build practical software, interactive web experiences, and systems that solve real-world problems.</p>
                     
                     <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary" aria-label="Explore my projects">Explore My Work</a>
+                        <a href="#projects" class="btn btn-primary" aria-label="View featured software projects">View Projects</a>
+                        <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Explore GitHub repositories">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub Profile ↗
+                        </a>
                         <a href="#contact" class="btn btn-outline" aria-label="Get in touch">Let's Connect</a>
                     </div>
                     
@@ -183,7 +203,7 @@
             
             <div class="about-grid">
                 <div class="about-content">
-                    <p class="about-paragraph">I'm a <strong>BSc (Hons) Computing student</strong> at Informatics College Pokhara and a software developer based in Pokhara, Nepal. My work spans full-stack web applications, interactive 3D graphics, Java desktop engineering, and cybersecurity.</p>
+                    <p class="about-paragraph">I'm a <strong>BSc (Hons) Computing student</strong> at Informatics College Pokhara and a software developer based in Pokhara, Nepal. My work spans full-stack web applications, interactive 3D graphics, Java desktop engineering, and secure system architectures.</p>
                     <p class="about-paragraph">I believe in engineering practical, production-ready software centered around real user needs. My GitHub portfolio reflects actual codebases — ranging from low-poly multiplayer virtual worlds in Three.js to desktop OOP management systems and civic transport platforms with DoTM legal compliance.</p>
                     
                     <div class="about-highlights">
@@ -214,31 +234,45 @@
                     </div>
                 </div>
                 
+                <!-- Verified Statistics Pre-Rendered (Never shows 0) -->
                 <div class="about-stats" role="list" aria-label="Verified GitHub Statistics">
                     <div class="stat-item" role="listitem">
-                        <span class="stat-number" data-stat="repos" data-count="8">0</span>
+                        <span class="stat-number" data-stat="repos" data-count="8">8</span>
                         <span class="stat-label">Public Repos</span>
                     </div>
                     <div class="stat-item" role="listitem">
-                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-number" data-stat="featured" data-count="5">5</span>
                         <span class="stat-label">Featured Projects</span>
                     </div>
                     <div class="stat-item" role="listitem">
-                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-number" data-stat="languages" data-count="5">5</span>
                         <span class="stat-label">Core Languages</span>
                     </div>
                     <div class="stat-item" role="listitem">
-                        <span class="stat-number" data-stat="stars" data-count="58">0</span>
+                        <span class="stat-number" data-stat="stars" data-count="58">58</span>
                         <span class="stat-label">GitHub Stars</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Engineering Methodology ("How I Build") Section -->
+        <section id="methodology" class="section reveal" aria-labelledby="methodology-title">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 id="methodology-title" class="section-title">How I Build</h2>
+            </div>
+            <p class="section-subtitle">A disciplined engineering methodology focused on reliability, clean architecture, and real-world utility.</p>
+            
+            <div class="methodology-grid" role="list" aria-label="Engineering methodology steps">
+                <!-- Dynamically populated by script.js from HOW_I_BUILD -->
             </div>
         </section>
         
         <!-- Featured Projects Section -->
         <section id="projects" class="section reveal" aria-labelledby="projects-title">
             <div class="section-header">
-                <span class="section-number">02</span>
+                <span class="section-number">03</span>
                 <h2 id="projects-title" class="section-title">Featured Projects</h2>
             </div>
             <p class="section-subtitle">Curated from my actual GitHub repositories — no filler, no fake projects.</p>
@@ -265,7 +299,7 @@
         <!-- Technical Articles & Case Studies Section -->
         <section id="articles" class="section reveal" aria-labelledby="articles-title">
             <div class="section-header">
-                <span class="section-number">03</span>
+                <span class="section-number">04</span>
                 <h2 id="articles-title" class="section-title">Technical Case Studies</h2>
             </div>
             <p class="section-subtitle">Deep architectural analyses, engineering breakdowns, and lessons learned from production codebases.</p>
@@ -278,7 +312,7 @@
         <!-- All Projects Archive Section -->
         <section id="all-projects" class="section reveal" aria-labelledby="all-projects-title">
             <div class="section-header">
-                <span class="section-number">04</span>
+                <span class="section-number">05</span>
                 <h2 id="all-projects-title" class="section-title">All Projects Archive</h2>
             </div>
             <p class="section-subtitle">Complete archive of public GitHub repositories developed by Anuj Thapa.</p>
@@ -291,7 +325,7 @@
         <!-- Tech Stack Section -->
         <section id="skills" class="section reveal" aria-labelledby="skills-title">
             <div class="section-header">
-                <span class="section-number">05</span>
+                <span class="section-number">06</span>
                 <h2 id="skills-title" class="section-title">Tech Stack</h2>
             </div>
             <p class="section-subtitle">Technologies I actually use — derived directly from my GitHub repositories.</p>
@@ -304,7 +338,7 @@
         <!-- GitHub Built in Public Section -->
         <section id="github" class="section reveal" aria-labelledby="github-title">
             <div class="section-header">
-                <span class="section-number">06</span>
+                <span class="section-number">07</span>
                 <h2 id="github-title" class="section-title">Built in Public</h2>
             </div>
             <p class="section-subtitle">Open-source contributions and development activity hosted on GitHub.</p>
@@ -389,10 +423,10 @@
         <!-- Contact Section -->
         <section id="contact" class="section reveal" aria-labelledby="contact-title">
             <div class="section-header">
-                <span class="section-number">07</span>
-                <h2 id="contact-title" class="section-title">Let's Build Something.</h2>
+                <span class="section-number">08</span>
+                <h2 id="contact-title" class="section-title">Let's build something meaningful.</h2>
             </div>
-            <p class="section-subtitle">Open to software engineering collaborations, freelance projects, and technical challenges.</p>
+            <p class="section-subtitle">Open to software projects, engineering collaborations, internships, freelance opportunities, and technical challenges.</p>
             
             <div class="contact-grid">
                 <div class="contact-info">
@@ -415,14 +449,14 @@
                             <span class="contact-value">Simpani, Pokhara, Nepal</span>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon" aria-hidden="true">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         </div>
                         <div class="contact-detail">
-                            <span class="contact-label">Phone</span>
-                            <a href="tel:+9779865117237" class="contact-value">+977 9865117237</a>
+                            <span class="contact-label">Status</span>
+                            <span class="contact-value" style="color: var(--accent-emerald);">Available for Opportunities</span>
                         </div>
                     </div>
                 </div>
@@ -459,11 +493,14 @@
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
+            <p class="footer-brand"><strong>ANUJ THAPA</strong> — Software Developer &amp; Computing Student • Pokhara, Nepal</p>
             <p class="copyright">© 2026 Anuj Thapa. All Rights Reserved.</p>
             <div class="footer-links">
-                <a href="https://github.com/anujthapa1/cvanuj" target="_blank" rel="noopener noreferrer">View Repository Source</a>
+                <a href="https://github.com/anujthapa1/cvanuj" target="_blank" rel="noopener noreferrer">View Source</a>
                 <span>•</span>
                 <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                <span>•</span>
+                <a href="https://linkedin.com/in/anujthapa444" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </div>
     </footer>
@@ -478,8 +515,8 @@
         </div>
     </div>
     
-    <!-- Project Scripts -->
-    <script src="data/projects.js?v=2.0"></script>
-    <script src="script.js?v=2.0"></script>
+    <!-- Project Scripts with Cache Busting -->
+    <script src="data/projects.js?v=3.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

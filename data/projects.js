@@ -344,15 +344,48 @@ const GITHUB_PROFILE = {
     ]
 };
 
-// Verified Contact Information
+// Verified Contact Information (Phone removed from public page for privacy)
 const CONTACT = {
     email: 'thapapabitraanuj@gmail.com',
-    phone: '+977 9865117237',
-    location: 'Simpani, Pokhara, Nepal',
+    location: 'Pokhara, Nepal',
     github: 'https://github.com/anujthapa1',
     linkedin: 'https://linkedin.com/in/anujthapa444',
     instagram: 'https://instagram.com/anujthapa444'
 };
+
+// Engineering Methodology ("How I Build")
+const HOW_I_BUILD = [
+    {
+        number: '01',
+        step: 'Understand',
+        tagline: 'Deconstruct the real-world problem',
+        description: 'Analyze domain requirements, legal constraints, user personas, and data models before writing a line of code.'
+    },
+    {
+        number: '02',
+        step: 'Design',
+        tagline: 'Architect clean & resilient systems',
+        description: 'Establish type schemas, OOP class hierarchies, scalable component state, and accessible responsive interfaces.'
+    },
+    {
+        number: '03',
+        step: 'Build',
+        tagline: 'Write production-grade software',
+        description: 'Implement clean code using modern standards (TypeScript, Java 21, React 19, Three.js) with zero fluff or bloat.'
+    },
+    {
+        number: '04',
+        step: 'Test',
+        tagline: 'Verify edge cases & validation',
+        description: 'Validate input regular expressions, data persistence, network fallbacks, cross-browser compatibility, and WCAG accessibility.'
+    },
+    {
+        number: '05',
+        step: 'Ship & Maintain',
+        tagline: 'Optimize, document & build in public',
+        description: 'Deploy lightning-fast static builds, achieve sub-50ms paint times, write technical documentation, and iterate openly.'
+    }
+];
 
 // Categorized Tech Stack based on GitHub Repositories
 const SKILLS = {
@@ -523,5 +556,5 @@ public class DomesticBooking extends CylinderBooking {
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROJECTS, CATEGORIES, ALL_TECHNOLOGIES, FEATURED_PROJECTS, ALL_PROJECTS, GITHUB_PROFILE, CONTACT, SKILLS, ARTICLES };
+    module.exports = { PROJECTS, CATEGORIES, ALL_TECHNOLOGIES, FEATURED_PROJECTS, ALL_PROJECTS, GITHUB_PROFILE, CONTACT, HOW_I_BUILD, SKILLS, ARTICLES };
 }
