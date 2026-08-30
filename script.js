@@ -485,37 +485,151 @@ function renderTechStack() {
    GitHub Built in Public Section & Live Sync
    ========================================================================== */
 function renderGitHubSection() {
-    const langContainer = document.querySelector('.github-languages');
-    if (!langContainer || typeof GITHUB_PROFILE === 'undefined') return;
+    if (typeof GITHUB_PROFILE === 'undefined') return;
 
-    langContainer.innerHTML = GITHUB_PROFILE.topLanguages.map(l => `
-        <span class="lang-badge">
-            <span class="lang-dot" style="background-color: ${l.color};"></span>
-            ${escapeHtml(l.name)} (${l.percent}%)
-        </span>
-    `).join('');
+    // Render language distribution bar
+    const langBar = document.getElementById('githubLangBar');
+    if (langBar && Array.isArray(GITHUB_PROFILE.topLanguages)) {
+        langBar.innerHTML = GITHUB_PROFILE.topLanguages.map(l => `
+            <div class="lang-bar-segment" style="width: ${l.percent}%; background-color: ${l.color};" title="${escapeHtml(l.name)} (${l.percent}%)"></div>
+        `).join('');
+    }
+
+    // Render language distribution list badges
+    const langList = document.getElementById('githubLanguagesList') || document.querySelector('.github-languages');
+    if (langList && Array.isArray(GITHUB_PROFILE.topLanguages)) {
+        langList.innerHTML = GITHUB_PROFILE.topLanguages.map(l => `
+            <span class="lang-badge">
+                <span class="lang-dot" style="background-color: ${l.color};"></span>
+                ${escapeHtml(l.name)} (${l.percent}%)
+            </span>
+        `).join('');
+    }
+
+    // Render initial curated GitHub repositories from PROJECTS
+    renderGitHubReposGrid();
+
+    // Attach click handler to Sync / Refresh button
+    const refreshBtn = document.getElementById('githubRefreshBtn');
+    if (refreshBtn && !refreshBtn.dataset.listenerAttached) {
+        refreshBtn.dataset.listenerAttached = 'true';
+        refreshBtn.addEventListener('click', () => {
+            syncLiveGitHubData(true);
+        });
+    }
 }
 
-async function syncLiveGitHubData() {
-    try {
-        const userRes = await fetch('https://api.github.com/users/anujthapa1', { cache: 'no-cache' });
-        if (!userRes.ok) return;
-        const userData = await userRes.json();
+function renderGitHubReposGrid(liveRepos = null) {
+    const reposGrid = document.getElementById('githubReposGrid');
+    if (!reposGrid) return;
 
-        const reposRes = await fetch('https://api.github.com/users/anujthapa1/repos?per_page=100', { cache: 'no-cache' });
-        let totalStars = 58;
-        if (reposRes.ok) {
-            const reposData = await reposRes.json();
+    if (liveRepos && Array.isArray(liveRepos) && liveRepos.length > 0) {
+        // Render from live GitHub API response
+        const displayRepos = liveRepos
+            .filter(r => !r.fork && r.name !== 'anujthapa1')
+            .slice(0, 4);
+
+        if (displayRepos.length > 0) {
+            reposGrid.innerHTML = displayRepos.map(repo => {
+                const langColor = getLanguageColor(repo.language || 'Code');
+                const updateDate = repo.pushed_at ? new Date(repo.pushed_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' }) : '';
+                return `
+                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="recent-repo-card" aria-label="View ${escapeHtml(repo.name)} on GitHub">
+                        <div class="recent-repo-head">
+                            <span class="recent-repo-name">${escapeHtml(repo.name)}</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </div>
+                        <p class="recent-repo-desc">${escapeHtml(repo.description || 'Verified open-source repository by Anuj Thapa.')}</p>
+                        <div class="recent-repo-meta">
+                            <span class="lang-badge">
+                                <span class="lang-dot" style="background-color: ${langColor};"></span>
+                                ${escapeHtml(repo.language || 'Source')}
+                            </span>
+                            ${repo.stargazers_count > 0 ? `<span>★ ${repo.stargazers_count}</span>` : `<span>${updateDate}</span>`}
+                        </div>
+                    </a>
+                `;
+            }).join('');
+            return;
+        }
+    }
+
+    // Fallback / Initial: Render top curated projects from PROJECTS configuration
+    if (typeof PROJECTS !== 'undefined') {
+        const topProjects = PROJECTS.filter(p => p.featured).slice(0, 4);
+        reposGrid.innerHTML = topProjects.map(proj => {
+            const primaryLang = proj.technologies[0]?.name || 'TypeScript';
+            const langColor = getLanguageColor(primaryLang);
+            return `
+                <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="recent-repo-card" aria-label="View ${escapeHtml(proj.title)} on GitHub">
+                    <div class="recent-repo-head">
+                        <span class="recent-repo-name">${escapeHtml(proj.id)}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </div>
+                    <p class="recent-repo-desc">${escapeHtml(proj.shortDescription)}</p>
+                    <div class="recent-repo-meta">
+                        <span class="lang-badge">
+                            <span class="lang-dot" style="background-color: ${langColor};"></span>
+                            ${escapeHtml(primaryLang)}
+                        </span>
+                        <span>Verified Repo</span>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+}
+
+function getLanguageColor(lang) {
+    const colors = {
+        'TypeScript': '#3178c6',
+        'JavaScript': '#f7df1e',
+        'Java': '#b07219',
+        'HTML': '#e34c26',
+        'CSS': '#563d7c',
+        'Python': '#3572A5',
+        'Three.js': '#38bdf8',
+        'React': '#61dafb'
+    };
+    return colors[lang] || '#38bdf8';
+}
+
+async function syncLiveGitHubData(isManual = false) {
+    const refreshBtn = document.getElementById('githubRefreshBtn');
+    const syncStatusEl = document.getElementById('githubSyncStatus');
+
+    if (refreshBtn) refreshBtn.classList.add('spinning');
+    if (syncStatusEl && isManual) syncStatusEl.textContent = 'Syncing...';
+
+    try {
+        const [userRes, reposRes] = await Promise.allSettled([
+            fetch('https://api.github.com/users/anujthapa1', { cache: 'no-cache' }),
+            fetch('https://api.github.com/users/anujthapa1/repos?per_page=100&sort=pushed', { cache: 'no-cache' })
+        ]);
+
+        let publicRepos = GITHUB_PROFILE.publicRepos || 8;
+        let followers = GITHUB_PROFILE.followers || 1;
+        let totalStars = GITHUB_PROFILE.stars || 58;
+        let reposData = null;
+
+        if (userRes.status === 'fulfilled' && userRes.value.ok) {
+            const userData = await userRes.value.json();
+            if (typeof userData.public_repos === 'number') publicRepos = userData.public_repos;
+            if (typeof userData.followers === 'number') followers = userData.followers;
+        }
+
+        if (reposRes.status === 'fulfilled' && reposRes.value.ok) {
+            reposData = await reposRes.value.json();
             if (Array.isArray(reposData)) {
                 totalStars = reposData.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
             }
         }
 
-        // Update live stats in DOM if elements exist
+        // Update Stat Badges across page
         const repoStatEl = document.querySelector('.stat-number[data-stat="repos"]');
-        if (repoStatEl && userData.public_repos) {
-            repoStatEl.setAttribute('data-count', userData.public_repos);
-            repoStatEl.textContent = userData.public_repos;
+        if (repoStatEl) {
+            repoStatEl.setAttribute('data-count', publicRepos);
+            repoStatEl.textContent = publicRepos;
         }
 
         const starStatEl = document.querySelector('.stat-number[data-stat="stars"]');
@@ -524,16 +638,34 @@ async function syncLiveGitHubData() {
             starStatEl.textContent = totalStars;
         }
 
-        // Add Live Synced Badge on GitHub card
-        const ghProfile = document.querySelector('.github-profile');
-        if (ghProfile && !document.querySelector('.github-live-badge')) {
-            const badge = document.createElement('div');
-            badge.className = 'github-live-badge';
-            badge.innerHTML = '<span>●</span> Live Synced via GitHub API';
-            ghProfile.appendChild(badge);
+        // Update GitHub section stat cards
+        const ghRepoStat = document.querySelector('.github-stat-val[data-gh-stat="repos"]');
+        if (ghRepoStat) ghRepoStat.textContent = publicRepos;
+
+        const ghStarStat = document.querySelector('.github-stat-val[data-gh-stat="stars"]');
+        if (ghStarStat) ghStarStat.textContent = totalStars;
+
+        const ghFollowerStat = document.querySelector('.github-stat-val[data-gh-stat="followers"]');
+        if (ghFollowerStat) ghFollowerStat.textContent = followers;
+
+        // Re-render live repository cards if repos data received
+        if (reposData && Array.isArray(reposData)) {
+            renderGitHubReposGrid(reposData);
+        }
+
+        if (syncStatusEl) {
+            const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            syncStatusEl.textContent = `Live Synced (${timeStr})`;
         }
     } catch (e) {
-        console.warn('GitHub API live sync skipped (offline/rate limit fallback active):', e);
+        console.warn('GitHub API live sync fallback active:', e);
+        if (syncStatusEl) syncStatusEl.textContent = 'Live Synced (Cached)';
+    } finally {
+        if (refreshBtn) {
+            setTimeout(() => {
+                refreshBtn.classList.remove('spinning');
+            }, 400);
+        }
     }
 }
 

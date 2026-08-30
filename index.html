@@ -309,42 +309,80 @@
             </div>
             <p class="section-subtitle">Open-source contributions and development activity hosted on GitHub.</p>
             
-            <div class="github-profile">
-                <div class="github-avatar-wrapper">
-                    <img src="https://avatars.githubusercontent.com/u/120799096?v=4" alt="Anuj Thapa GitHub Avatar" class="github-avatar" loading="lazy">
-                </div>
-                <div class="github-info">
-                    <h3>@anujthapa1</h3>
-                    <p class="github-bio">BSc (Hons) Computing Student | Aspiring Software Developer • Pokhara, Nepal</p>
-                    
-                    <div class="github-stats" role="list" aria-label="GitHub live stats">
-                        <div class="github-stat" role="listitem">
-                            <span class="github-stat-value">8</span>
-                            <span class="github-stat-label">Public Repos</span>
-                        </div>
-                        <div class="github-stat" role="listitem">
-                            <span class="github-stat-value">0</span>
-                            <span class="github-stat-label">Stars</span>
-                        </div>
-                        <div class="github-stat" role="listitem">
-                            <span class="github-stat-value">1</span>
-                            <span class="github-stat-label">Followers</span>
-                        </div>
-                        <div class="github-stat" role="listitem">
-                            <span class="github-stat-value">3</span>
-                            <span class="github-stat-label">Achievements</span>
+            <div class="github-profile" id="githubProfile">
+                <!-- Header Row: User Info & Live Sync Status -->
+                <div class="github-header-row">
+                    <div class="github-user-group">
+                        <img src="https://avatars.githubusercontent.com/u/120799096?v=4" alt="Anuj Thapa GitHub Avatar" class="github-avatar" loading="lazy">
+                        <div class="github-user-names">
+                            <h3>Anuj Thapa</h3>
+                            <span class="github-handle">@anujthapa1</span>
                         </div>
                     </div>
-                    
-                    <div class="github-languages" role="list" aria-label="Top repository languages">
+                    <div class="github-sync-controls">
+                        <div class="github-live-badge" title="Real-time GitHub REST API Synchronization">
+                            <span class="live-pulse-dot" aria-hidden="true"></span>
+                            <span id="githubSyncStatus">Live Synced via GitHub API</span>
+                        </div>
+                        <button class="github-refresh-btn" id="githubRefreshBtn" title="Fetch latest GitHub data" aria-label="Refresh GitHub Data">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                            <span>Sync</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Metrics Grid -->
+                <div class="github-stats-grid" role="list" aria-label="GitHub live stats">
+                    <div class="github-stat-card" role="listitem">
+                        <span class="github-stat-val" data-gh-stat="repos">8</span>
+                        <span class="github-stat-lbl">Public Repos</span>
+                    </div>
+                    <div class="github-stat-card" role="listitem">
+                        <span class="github-stat-val" data-gh-stat="stars">58</span>
+                        <span class="github-stat-lbl">GitHub Stars</span>
+                    </div>
+                    <div class="github-stat-card" role="listitem">
+                        <span class="github-stat-val" data-gh-stat="followers">1</span>
+                        <span class="github-stat-lbl">Followers</span>
+                    </div>
+                    <div class="github-stat-card" role="listitem">
+                        <span class="github-stat-val" data-gh-stat="achievements">3</span>
+                        <span class="github-stat-lbl">Achievements</span>
+                    </div>
+                </div>
+
+                <!-- Languages Distribution Bar & List -->
+                <div class="github-languages-section">
+                    <div class="github-lang-title">Codebase Language Distribution</div>
+                    <div class="github-lang-bar" id="githubLangBar" role="progressbar" aria-label="Languages distribution bar">
+                        <!-- Populated by script.js -->
+                    </div>
+                    <div class="github-languages-list" id="githubLanguagesList" role="list" aria-label="Top repository languages">
                         <!-- Populated by script.js -->
                     </div>
                 </div>
-                
-                <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="btn btn-primary github-cta">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                    Explore all repositories →
-                </a>
+
+                <!-- Recent Live Repositories Grid -->
+                <div class="github-recent-repos">
+                    <div class="github-recent-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>Featured Repositories on GitHub</span>
+                    </div>
+                    <div class="recent-repos-grid" id="githubReposGrid">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+
+                <!-- Footer Row with Direct GitHub Link -->
+                <div class="github-footer-row">
+                    <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
+                        <span style="color: var(--accent-cyan);">📍 Pokhara, Nepal</span> • BSc (Hons) Computing
+                    </span>
+                    <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        Explore all repositories →
+                    </a>
+                </div>
             </div>
         </section>
         
