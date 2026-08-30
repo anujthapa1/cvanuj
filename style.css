@@ -456,15 +456,36 @@ button {
     width: 320px;
     height: 320px;
     border-radius: 50%;
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.6));
-    box-shadow: 0 0 50px rgba(56, 189, 248, 0.25);
-    animation: rotateBorder 16s linear infinite;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
 }
 
-@keyframes rotateBorder {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+.profile-ring::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #38bdf8, #6366f1, #a855f7, #38bdf8);
+    animation: spinGlow 8s linear infinite;
+    z-index: 0;
+}
+
+.profile-ring::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: var(--bg-base);
+    z-index: 1;
+}
+
+@keyframes spinGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .profile-pic {
@@ -472,8 +493,11 @@ button {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 16%;
     background: var(--bg-card);
-    border: 4px solid var(--bg-base);
+    position: relative;
+    z-index: 2;
+    filter: none !important;
 }
 
 .hero-text {
