@@ -399,6 +399,129 @@ const SKILLS = {
     ]
 };
 
+// Technical Case Studies & Articles
+const ARTICLES = [
+    {
+        id: 'virtual-campus-architecture',
+        title: 'Architecting a Multiplayer 3D Virtual Campus with Three.js, React 19 & Socket.io',
+        tagline: 'Deep dive into real-time WebGL synchronization, procedural collision detection, and spatial Web Audio in the browser.',
+        date: 'Aug 2026',
+        readTime: '6 min read',
+        category: '3D Graphics & Networking',
+        tags: ['Three.js', 'React 19', 'Socket.io', 'Web Audio API', 'Node.js'],
+        summary: 'How we engineered a production 3D university environment in the browser with real-time positional interpolation, custom entity management, and low-latency multiplayer chat.',
+        content: `
+            <h3>1. The Architectural Challenge</h3>
+            <p>Building a 3D multiplayer university environment in the web browser introduces two distinct performance constraints: maintaining 60 FPS rendering on consumer hardware and synchronizing avatar vectors across multiple clients with minimal network latency.</p>
+
+            <h3>2. Entity-Component Coordinate Synchronization</h3>
+            <p>Rather than coupling Three.js objects directly into React component state cycles (which causes costly re-renders), the system utilizes a dedicated game loop manager. React coordinates the high-level HUD overlays (Minimap, Chat, Login modal) while the Three.js render loop updates positions and collisions on animation frames.</p>
+
+            <pre><code>// Linear interpolation (Lerp) for smooth player movement
+function updateRemotePlayer(playerEntity, targetPosition, targetRotation, delta) {
+    playerEntity.position.lerp(targetPosition, delta * 12.0);
+    playerEntity.quaternion.slerp(targetRotation, delta * 10.0);
+}</code></pre>
+
+            <h3>3. Procedural Audio Synthesis</h3>
+            <p>To eliminate heavy MP3 asset download payloads, sound effects (footsteps, teleportation chimes, fountain ambience) are synthesized dynamically at runtime using the Web Audio API with custom oscillator and biquad filter nodes.</p>
+
+            <h3>4. Key Takeaways</h3>
+            <ul>
+                <li>Decouple UI state from 3D animation loops to maintain consistent 60 FPS frame rates.</li>
+                <li>Employ vector quantization and dead reckoning over WebSockets to save client bandwidth.</li>
+                <li>Utilize procedural geometry and audio synthesis to achieve sub-second initial load times.</li>
+            </ul>
+        `
+    },
+    {
+        id: 'java-oop-lpg-design',
+        title: 'Applying OOP Design Patterns in Java Swing for Desktop Quota Management',
+        tagline: 'Implementing abstraction, dynamic method dispatch, and robust regex validation for municipal distribution.',
+        date: 'Aug 2026',
+        readTime: '5 min read',
+        category: 'Software Architecture',
+        tags: ['Java 21', 'Java Swing', 'OOP Principles', 'File I/O', 'Regex'],
+        summary: 'A look into structuring a clean multi-layered Java Swing desktop application applying runtime polymorphism for government subsidies and commercial bulk discounts.',
+        content: `
+            <h3>1. The Domain Model &amp; Business Rules</h3>
+            <p>The NOC LPG Cylinder Management System governs two distinct customer profiles: domestic households (eligible for government subsidies subject to a 2-unit monthly quota per citizenship ID) and commercial enterprises (entitled to tiered bulk volume discounts).</p>
+
+            <h3>2. Inheritance &amp; Dynamic Method Dispatch</h3>
+            <p>By establishing an abstract base class <code>CylinderBooking</code>, domestic and commercial variants implement polymorphic pricing behaviors dynamically evaluated at runtime:</p>
+
+            <pre><code>public abstract class CylinderBooking {
+    protected String bookingId;
+    protected String customerId;
+    protected double basePrice;
+
+    public abstract double calculatePayableAmount();
+}
+
+public class DomesticBooking extends CylinderBooking {
+    private static final double GOV_SUBSIDY = 350.0;
+    
+    @Override
+    public double calculatePayableAmount() {
+        return Math.max(0, this.basePrice - GOV_SUBSIDY);
+    }
+}</code></pre>
+
+            <h3>3. Validation Engine &amp; File Persistence</h3>
+            <p>Customer citizenship identification numbers are strictly validated through regular expressions (<code>^\\d{2}-\\d{2}-\\d{2}-\\d{6}$</code>) to prevent invalid allocations, and transaction ledgers are persisted using structured file streams for audit integrity.</p>
+        `
+    },
+    {
+        id: 'dotm-bus-routes-nepal',
+        title: 'Building Scientific Bus Route & Fare Engines with DoTM Legal Compliance',
+        tagline: 'Engineering transparent public transit calculators and legal rights awareness platforms for commuters in Nepal.',
+        date: 'Aug 2026',
+        readTime: '5 min read',
+        category: 'Civic Technology',
+        tags: ['Next.js', 'TypeScript', 'Google Maps API', 'Civic Tech', 'Tailwind CSS'],
+        summary: 'How open-source software bridges the gap between government transport directives and daily bus commuters in Pokhara and Kathmandu Valley.',
+        content: `
+            <h3>1. The Commuter Dilemma in Nepal</h3>
+            <p>Public transportation fares across Nepal are officially regulated by the Department of Transport Management (DoTM). However, scientific distance rates are rarely displayed clearly to passengers, leading to arbitrary pricing and unlawful denials of mandatory 45% student and 50% senior/disability concessions.</p>
+
+            <h3>2. Automated Calculation Engine</h3>
+            <p>The application takes coordinate waypoints across local routes, calculates precise travel distances via the Directions API, and applies the official stepwise scientific rate formula:</p>
+
+            <pre><code>export function calculateScientificFare(distanceKm: number, discountType: 'regular' | 'student' | 'senior'): number {
+    const baseFare = 20; // First 0-4 KM
+    let fare = distanceKm <= 4 ? baseFare : baseFare + (distanceKm - 4) * 2.5;
+    
+    if (discountType === 'student') return Math.round(fare * 0.55); // 45% discount
+    if (discountType === 'senior') return Math.round(fare * 0.50);  // 50% discount
+    return Math.round(fare);
+}</code></pre>
+
+            <h3>3. Direct Legal Safeguards</h3>
+            <p>The platform embeds direct references to the Senior Citizens Act 2063 and Disabilities Act 2074 with one-tap emergency contacts for traffic police (103) and national helplines (1148).</p>
+        `
+    },
+    {
+        id: 'zero-dependency-web-performance',
+        title: 'Zero-Dependency Web Engineering: Achieving 100 Lighthouse Performance Scores',
+        tagline: 'Crafting modern, accessible, and fast web portfolios without framework bloat.',
+        date: 'Aug 2026',
+        readTime: '4 min read',
+        category: 'Web Performance',
+        tags: ['Web Standards', 'Vanilla JavaScript', 'CSS Variables', 'SEO', 'Performance'],
+        summary: 'Techniques for building production web experiences with sub-50ms paint times, custom properties theming, and intersection observer pipelines.',
+        content: `
+            <h3>1. The Cost of Framework Overhead</h3>
+            <p>Modern developer portfolios frequently bundle 200KB+ of JavaScript frameworks just to render static cards and handle simple click interactions. This increases Time-to-Interactive (TTI) and First Input Delay (FID), especially on mobile networks.</p>
+
+            <h3>2. Modern CSS as an Engine</h3>
+            <p>By leveraging CSS Custom Properties, CSS Grid, and hardware-accelerated animations (<code>transform</code> and <code>opacity</code>), we achieve fluid responsiveness and instant dark/light theme switching with zero JavaScript layout thrashing.</p>
+
+            <h3>3. IntersectionObserver Pipeline</h3>
+            <p>All scroll reveals, number counters, and background animations operate asynchronously through a unified <code>IntersectionObserver</code>, releasing main-thread execution when elements are outside the viewport.</p>
+        `
+    }
+];
+
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PROJECTS, CATEGORIES, ALL_TECHNOLOGIES, FEATURED_PROJECTS, ALL_PROJECTS, GITHUB_PROFILE, CONTACT, SKILLS };
+    module.exports = { PROJECTS, CATEGORIES, ALL_TECHNOLOGIES, FEATURED_PROJECTS, ALL_PROJECTS, GITHUB_PROFILE, CONTACT, SKILLS, ARTICLES };
 }

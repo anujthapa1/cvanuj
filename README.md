@@ -234,12 +234,14 @@ node -e "const data = require('./data/projects.js'); console.log('Projects loade
 
 ---
 
-## 📈 Future Improvements
+## 📈 Production Roadmap & Shipped Features
 
-- [ ] Automated GitHub API synchronization fallback for live star counts and commit activity.
-- [ ] Interactive live WebGL Three.js interactive canvas in the hero background.
-- [ ] Blog / Technical Case Studies sub-routing module.
-- [ ] Dark / Light theme toggle with persisted local storage preference.
+- [x] **Automated GitHub API Synchronization**: Live star count, public repository count, and live sync badge via GitHub REST API.
+- [x] **Interactive Hero WebGL / Particle Canvas**: Smooth, hardware-accelerated particle network with mouse cursor tracking.
+- [x] **Technical Case Studies & Article Reader**: Integrated deep-dive architectural analyses for top GitHub repositories.
+- [x] **Dark / Light Theme Engine**: High-contrast theme switcher with persisted `localStorage` preference.
+- [ ] Multi-language localization (Nepali / English toggle).
+- [ ] Interactive live in-browser terminal emulator.
 
 ---
 

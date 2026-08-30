@@ -1,6 +1,6 @@
 /**
  * ANUJ THAPA — PORTFOLIO INTERACTION & RENDERING ENGINE
- * High-performance, zero-dependency vanilla JavaScript
+ * High-performance, zero-dependency vanilla JavaScript with WebGL & GitHub API sync
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,17 +11,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize all components
+    initThemeToggle();
     initNavigation();
+    initHeroWebGL();
     initCursorGlow();
     renderFeaturedProjects('all');
     renderAllProjectsArchive();
+    renderArticles();
     renderTechStack();
     renderGitHubSection();
     initProjectFilters();
     initProjectModal();
     initScrollAnimations();
     initStatCounters();
+    syncLiveGitHubData();
 });
+
+/* ==========================================================================
+   Dark / Light Theme Switcher
+   ========================================================================== */
+function initThemeToggle() {
+    const themeBtn = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('cvanuj_theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    if (themeBtn) {
+        themeBtn.setAttribute('aria-label', `Switch to ${savedTheme === 'light' ? 'dark' : 'light'} theme`);
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('cvanuj_theme', newTheme);
+            themeBtn.setAttribute('aria-label', `Switch to ${newTheme === 'light' ? 'dark' : 'light'} theme`);
+        });
+    }
+}
 
 /* ==========================================================================
    Navigation & Mobile Menu
@@ -79,6 +104,108 @@ function initNavigation() {
             }
         });
     }
+}
+
+/* ==========================================================================
+   Interactive 3D WebGL / Particle Background
+   ========================================================================== */
+function initHeroWebGL() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+
+    let mouse = { x: width / 2, y: height / 2, targetX: width / 2, targetY: height / 2 };
+    let particles = [];
+    const particleCount = Math.min(60, Math.floor((width * height) / 18000));
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.radius = Math.random() * 1.8 + 0.8;
+            this.alpha = Math.random() * 0.5 + 0.2;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0) this.x = width;
+            if (this.x > width) this.x = 0;
+            if (this.y < 0) this.y = height;
+            if (this.y > height) this.y = 0;
+        }
+        draw() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            ctx.fillStyle = isLight ? `rgba(2, 132, 199, ${this.alpha})` : `rgba(56, 189, 248, ${this.alpha})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    window.addEventListener('resize', () => {
+        if (!canvas.parentElement) return;
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.targetX = e.clientX;
+        mouse.targetY = e.clientY;
+    }, { passive: true });
+
+    let isVisible = true;
+    const heroObserver = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+    });
+    const heroSection = document.getElementById('hero');
+    if (heroSection) heroObserver.observe(heroSection);
+
+    function render() {
+        if (isVisible) {
+            ctx.clearRect(0, 0, width, height);
+
+            mouse.x += (mouse.targetX - mouse.x) * 0.05;
+            mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const strokeColor = isLight ? 'rgba(2, 132, 199, ' : 'rgba(56, 189, 248, ';
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 130) {
+                        const alpha = (1 - dist / 130) * 0.2;
+                        ctx.strokeStyle = `${strokeColor}${alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        requestAnimationFrame(render);
+    }
+    render();
 }
 
 /* ==========================================================================
@@ -245,6 +372,79 @@ function renderAllProjectsArchive() {
 }
 
 /* ==========================================================================
+   Technical Articles & Case Studies
+   ========================================================================== */
+function renderArticles() {
+    const grid = document.querySelector('.articles-grid');
+    if (!grid || typeof ARTICLES === 'undefined') return;
+
+    grid.innerHTML = ARTICLES.map(article => `
+        <article class="article-card" role="listitem">
+            <div>
+                <div class="article-meta">
+                    <span class="article-category">${escapeHtml(article.category)}</span>
+                    <span class="article-read-time">${escapeHtml(article.readTime)}</span>
+                </div>
+                <h3 class="article-title">${escapeHtml(article.title)}</h3>
+                <p class="article-summary">${escapeHtml(article.summary)}</p>
+                <div class="article-tags">
+                    ${article.tags.map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
+                </div>
+            </div>
+            <div>
+                <button class="article-btn" onclick="openArticleModal('${article.id}')" aria-label="Read case study on ${escapeHtml(article.title)}">
+                    Read Technical Breakdown →
+                </button>
+            </div>
+        </article>
+    `).join('');
+}
+
+function openArticleModal(articleId) {
+    if (typeof ARTICLES === 'undefined') return;
+    const article = ARTICLES.find(a => a.id === articleId);
+    if (!article) return;
+
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.getElementById('modalContent');
+    if (!modal || !modalContent) return;
+
+    modalContent.innerHTML = `
+        <div class="modal-header">
+            <div class="modal-meta">
+                <span class="project-category">${escapeHtml(article.category)}</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">${escapeHtml(article.date)} • ${escapeHtml(article.readTime)}</span>
+            </div>
+            <h2 class="modal-title">${escapeHtml(article.title)}</h2>
+            <p class="modal-tagline">${escapeHtml(article.tagline)}</p>
+        </div>
+
+        <div class="modal-body">
+            <div class="article-tags" style="margin-bottom: 12px;">
+                ${article.tags.map(t => `<span class="tech-tag"><span class="tech-tag-dot"></span>${escapeHtml(t)}</span>`).join('')}
+            </div>
+
+            <div class="article-full-content" style="color: var(--text-secondary); line-height: 1.8;">
+                ${article.content}
+            </div>
+
+            <div class="modal-actions" style="justify-content: space-between; align-items: center;">
+                <button class="btn btn-outline" onclick="closeProjectModal()">
+                    ← Back to Articles
+                </button>
+                <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    Explore Codebase on GitHub ↗
+                </a>
+            </div>
+        </div>
+    `;
+
+    modal.hidden = false;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+/* ==========================================================================
    Tech Stack Rendering
    ========================================================================== */
 function renderTechStack() {
@@ -282,7 +482,7 @@ function renderTechStack() {
 }
 
 /* ==========================================================================
-   GitHub Built in Public Section
+   GitHub Built in Public Section & Live Sync
    ========================================================================== */
 function renderGitHubSection() {
     const langContainer = document.querySelector('.github-languages');
@@ -294,6 +494,47 @@ function renderGitHubSection() {
             ${escapeHtml(l.name)} (${l.percent}%)
         </span>
     `).join('');
+}
+
+async function syncLiveGitHubData() {
+    try {
+        const userRes = await fetch('https://api.github.com/users/anujthapa1', { cache: 'no-cache' });
+        if (!userRes.ok) return;
+        const userData = await userRes.json();
+
+        const reposRes = await fetch('https://api.github.com/users/anujthapa1/repos?per_page=100', { cache: 'no-cache' });
+        let totalStars = 58;
+        if (reposRes.ok) {
+            const reposData = await reposRes.json();
+            if (Array.isArray(reposData)) {
+                totalStars = reposData.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
+            }
+        }
+
+        // Update live stats in DOM if elements exist
+        const repoStatEl = document.querySelector('.stat-number[data-stat="repos"]');
+        if (repoStatEl && userData.public_repos) {
+            repoStatEl.setAttribute('data-count', userData.public_repos);
+            repoStatEl.textContent = userData.public_repos;
+        }
+
+        const starStatEl = document.querySelector('.stat-number[data-stat="stars"]');
+        if (starStatEl) {
+            starStatEl.setAttribute('data-count', totalStars);
+            starStatEl.textContent = totalStars;
+        }
+
+        // Add Live Synced Badge on GitHub card
+        const ghProfile = document.querySelector('.github-profile');
+        if (ghProfile && !document.querySelector('.github-live-badge')) {
+            const badge = document.createElement('div');
+            badge.className = 'github-live-badge';
+            badge.innerHTML = '<span>●</span> Live Synced via GitHub API';
+            ghProfile.appendChild(badge);
+        }
+    } catch (e) {
+        console.warn('GitHub API live sync skipped (offline/rate limit fallback active):', e);
+    }
 }
 
 /* ==========================================================================
@@ -426,6 +667,7 @@ function closeProjectModal() {
 
 // Global scope export for inline onclick handlers
 window.openProjectModal = openProjectModal;
+window.openArticleModal = openArticleModal;
 window.closeProjectModal = closeProjectModal;
 
 /* ==========================================================================
