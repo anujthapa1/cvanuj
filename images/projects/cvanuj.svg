@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-cv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a" />
+      <stop offset="50%" stop-color="#10172a" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+    <linearGradient id="cyan-indigo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bg-cv)" />
+
+  <g transform="translate(100, 70)">
+    <rect width="1000" height="540" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+    
+    <!-- Titlebar -->
+    <path d="M0 12 Q0 0 12 0 L988 0 Q1000 0 1000 12 L1000 46 L0 46 Z" fill="#1e293b" />
+    <circle cx="24" cy="23" r="6" fill="#ef4444" />
+    <circle cx="44" cy="23" r="6" fill="#f59e0b" />
+    <circle cx="64" cy="23" r="6" fill="#10b981" />
+    <text x="500" y="28" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+      🌐 CVanuj — Clean, High-Performance Online Portfolio &amp; Curriculum Vitae
+    </text>
+
+    <!-- Architecture & Features Layout -->
+    <g transform="translate(40, 75)">
+      <!-- Left: Mini website layout representation -->
+      <rect width="440" height="420" rx="8" fill="#020617" stroke="#1e293b" stroke-width="1" />
+      <!-- Mini navbar -->
+      <rect x="20" y="20" width="400" height="30" rx="4" fill="#0f172a" />
+      <text x="35" y="40" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="bold">AT.</text>
+      <text x="405" y="39" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="end">Home • Projects • Stack • Contact</text>
+
+      <!-- Mini Hero -->
+      <g transform="translate(20, 65)">
+        <rect width="400" height="150" rx="6" fill="#0f172a" />
+        <circle cx="60" cy="75" r="32" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+        <text x="110" y="55" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="bold">ANUJ THAPA</text>
+        <text x="110" y="75" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">Developer • Digital Creator</text>
+        <rect x="110" y="90" width="90" height="24" rx="12" fill="#38bdf8" />
+        <text x="155" y="106" fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="bold" text-anchor="middle">Projects →</text>
+      </g>
+
+      <!-- Mini Cards -->
+      <g transform="translate(20, 230)">
+        <rect width="190" height="170" rx="6" fill="#0f172a" stroke="rgba(56,189,248,0.2)" stroke-width="1" />
+        <text x="15" y="25" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">01 VIRTUAL CAMPUS</text>
+        <rect x="15" y="38" width="160" height="75" rx="4" fill="#1e293b" />
+        <text x="15" y="135" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Three.js • React • Sockets</text>
+      </g>
+      <g transform="translate(230, 230)">
+        <rect width="190" height="170" rx="6" fill="#0f172a" stroke="rgba(245,158,11,0.2)" stroke-width="1" />
+        <text x="15" y="25" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10">02 NOC LPG SYSTEM</text>
+        <rect x="15" y="38" width="160" height="75" rx="4" fill="#1e293b" />
+        <text x="15" y="135" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Java 21 • Swing • OOP</text>
+      </g>
+    </g>
+
+    <!-- Right: Architecture Highlights -->
+    <g transform="translate(520, 75)">
+      <rect width="440" height="420" rx="8" fill="#1e293b" />
+      <text x="30" y="38" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="bold">ARCHITECTURE &amp; PERFORMANCE</text>
+      <text x="30" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Production grade, lightweight, zero-dependency foundation</text>
+
+      <g transform="translate(30, 85)">
+        <rect width="380" height="65" rx="6" fill="#0f172a" />
+        <text x="20" y="26" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">⚡ 100 Lighthouse Performance</text>
+        <text x="20" y="48" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Pure vanilla HTML5, CSS3, &amp; ES6+ JavaScript</text>
+      </g>
+
+      <g transform="translate(30, 165)">
+        <rect width="380" height="65" rx="6" fill="#0f172a" />
+        <text x="20" y="26" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">🔍 Complete SEO &amp; OpenGraph Suite</text>
+        <text x="20" y="48" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Structured Schema.org JSON-LD &amp; Social Cards</text>
+      </g>
+
+      <g transform="translate(30, 245)">
+        <rect width="380" height="65" rx="6" fill="#0f172a" />
+        <text x="20" y="26" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">📱 Responsive &amp; Accessible</text>
+        <text x="20" y="48" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Semantic HTML5, ARIA roles, &amp; keyboard navigation</text>
+      </g>
+
+      <g transform="translate(30, 325)">
+        <rect width="380" height="65" rx="6" fill="#0f172a" />
+        <text x="20" y="26" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">🚀 GitHub Pages Direct Deployment</text>
+        <text x="20" y="48" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Hosted at thapaanuj.com.np &amp; github.io</text>
+      </g>
+    </g>
+  </g>
+</svg>

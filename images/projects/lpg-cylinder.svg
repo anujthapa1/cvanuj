@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-lpg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070b14" />
+    </linearGradient>
+    <linearGradient id="amber-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+    <filter id="glow-lpg" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#bg-lpg)" />
+
+  <!-- Abstract Grid Lines -->
+  <g opacity="0.15" stroke="#f59e0b" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="200" y1="0" x2="200" y2="680" />
+    <line x1="400" y1="0" x2="400" y2="680" />
+    <line x1="600" y1="0" x2="600" y2="680" />
+    <line x1="800" y1="0" x2="800" y2="680" />
+    <line x1="1000" y1="0" x2="1000" y2="680" />
+  </g>
+
+  <!-- Java Swing Window Frame -->
+  <g transform="translate(100, 60)">
+    <!-- Window Outer Container -->
+    <rect width="1000" height="560" rx="12" fill="#0f172a" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" />
+    
+    <!-- Window Titlebar -->
+    <path d="M0 12 Q0 0 12 0 L988 0 Q1000 0 1000 12 L1000 46 L0 46 Z" fill="#1e293b" />
+    <circle cx="24" cy="23" r="6" fill="#ef4444" />
+    <circle cx="44" cy="23" r="6" fill="#f59e0b" />
+    <circle cx="64" cy="23" r="6" fill="#10b981" />
+    
+    <text x="500" y="28" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="13" text-anchor="middle" font-weight="bold">
+      ☕ NOC LPG Cylinder Management System — Java Swing GUI [OOP Architecture]
+    </text>
+
+    <!-- Top Tab Navigation -->
+    <g transform="translate(30, 65)">
+      <!-- Tab 1 Active: Domestic Management -->
+      <rect width="220" height="38" rx="6" fill="#f59e0b" />
+      <text x="110" y="24" fill="#0f172a" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">DOMESTIC CYLINDER</text>
+      
+      <!-- Tab 2: Commercial Management -->
+      <rect x="235" width="220" height="38" rx="6" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <text x="345" y="24" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="13" text-anchor="middle">COMMERCIAL BULK</text>
+      
+      <!-- Tab 3: Records & Persistence -->
+      <rect x="470" width="200" height="38" rx="6" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <text x="570" y="24" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="13" text-anchor="middle">FILE I/O RECORDS</text>
+    </g>
+
+    <!-- Left Form Panel (Swing JPanel) -->
+    <g transform="translate(30, 120)">
+      <rect width="440" height="350" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <text x="20" y="32" fill="#f59e0b" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="bold">CUSTOMER BOOKING FORM</text>
+
+      <!-- Input 1: Booking ID -->
+      <text x="20" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">BOOKING ID</text>
+      <rect x="20" y="80" width="190" height="34" rx="4" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+      <text x="32" y="102" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12">BK-2026-0881</text>
+
+      <!-- Input 2: Cylinder ID -->
+      <text x="230" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">CYLINDER ID</text>
+      <rect x="230" y="80" width="190" height="34" rx="4" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+      <text x="242" y="102" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12">CYL-DOM-4402</text>
+
+      <!-- Input 3: Citizenship Number (Regex Validated) -->
+      <text x="20" y="145" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">CITIZENSHIP NO. (12-DIGIT REGEX)</text>
+      <rect x="20" y="155" width="400" height="34" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+      <text x="32" y="177" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="12">48-01-79-012948</text>
+      <circle cx="400" cy="172" r="7" fill="#10b981" />
+      <text x="400" y="176" fill="#0f172a" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">✓</text>
+
+      <!-- Quota and Subsidy Box -->
+      <g transform="translate(20, 210)">
+        <rect width="400" height="70" rx="6" fill="#0a0f1d" stroke="rgba(245,158,11,0.3)" stroke-width="1" />
+        <text x="16" y="26" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">MONTHLY QUOTA STATUS</text>
+        <text x="16" y="48" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="12">Quota: 1 / 2 Cylinders Used</text>
+        <text x="240" y="48" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">Gov Subsidy: Rs. 350</text>
+      </g>
+
+      <!-- Action Buttons -->
+      <g transform="translate(20, 295)">
+        <rect width="190" height="40" rx="6" fill="#f59e0b" />
+        <text x="115" y="25" fill="#0f172a" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">PROCEED BOOKING</text>
+
+        <rect x="210" width="190" height="40" rx="6" fill="#334155" />
+        <text x="305" y="25" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">EXPORT (.TXT)</text>
+      </g>
+    </g>
+
+    <!-- Right Table & Data Panel (Swing JTable) -->
+    <g transform="translate(490, 120)">
+      <rect width="480" height="350" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <text x="20" y="32" fill="#f59e0b" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="bold">ACTIVE BOOKING DIRECTORY (JTABLE)</text>
+
+      <!-- Table Header -->
+      <g transform="translate(20, 50)">
+        <rect width="440" height="32" rx="4" fill="#0f172a" />
+        <text x="15" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">ID</text>
+        <text x="100" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">TYPE</text>
+        <text x="200" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">BASE</text>
+        <text x="280" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">DISCOUNT</text>
+        <text x="380" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">FINAL</text>
+      </g>
+
+      <!-- Table Rows -->
+      <!-- Row 1 -->
+      <g transform="translate(20, 90)">
+        <rect width="440" height="36" rx="4" fill="#0f172a" opacity="0.6" />
+        <text x="15" y="22" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11">#BK-880</text>
+        <text x="100" y="22" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11">Domestic</text>
+        <text x="200" y="22" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Rs. 1,910</text>
+        <text x="280" y="22" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">- Rs. 350</text>
+        <text x="380" y="22" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">Rs. 1,560</text>
+      </g>
+      <!-- Row 2 -->
+      <g transform="translate(20, 134)">
+        <rect width="440" height="36" rx="4" fill="#0f172a" opacity="0.4" />
+        <text x="15" y="22" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11">#BK-879</text>
+        <text x="100" y="22" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11">Commercial</text>
+        <text x="200" y="22" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Rs. 9,550</text>
+        <text x="280" y="22" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">-5% Bulk</text>
+        <text x="380" y="22" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">Rs. 9,072</text>
+      </g>
+      <!-- Row 3 -->
+      <g transform="translate(20, 178)">
+        <rect width="440" height="36" rx="4" fill="#0f172a" opacity="0.6" />
+        <text x="15" y="22" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11">#BK-878</text>
+        <text x="100" y="22" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11">Domestic</text>
+        <text x="200" y="22" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Rs. 1,910</text>
+        <text x="280" y="22" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">- Rs. 350</text>
+        <text x="380" y="22" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">Rs. 1,560</text>
+      </g>
+
+      <!-- OOP Pillars Pill Badges -->
+      <g transform="translate(20, 240)">
+        <rect width="440" height="85" rx="6" fill="#0a0f1d" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <text x="16" y="24" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">OOP ARCHITECTURAL HIGHLIGHTS</text>
+        <g transform="translate(16, 38)">
+          <rect width="95" height="24" rx="4" fill="#334155" />
+          <text x="47" y="16" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Inheritance</text>
+          
+          <rect x="105" width="105" height="24" rx="4" fill="#334155" />
+          <text x="157" y="16" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Polymorphism</text>
+
+          <rect x="220" width="95" height="24" rx="4" fill="#334155" />
+          <text x="267" y="16" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Abstraction</text>
+
+          <rect x="325" width="95" height="24" rx="4" fill="#334155" />
+          <text x="372" y="16" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">File I/O</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Status Bar -->
+    <g transform="translate(0, 520)">
+      <rect width="1000" height="40" rx="0" fill="#0a0f1d" />
+      <text x="30" y="24" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">Status: Ready • Java 21 LTS Runtime • Validation Passed (0 errors)</text>
+      <text x="970" y="24" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">Persistence: records.txt</text>
+    </g>
+  </g>
+</svg>

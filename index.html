@@ -3,170 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anuj Thapa's portfolio showcasing education, skills, and services in web development and digital marketing.">
-    <title>Anuj Thapa | Portfolio</title>
+    <title>ANUJ THAPA — Developer &amp; Digital Creator</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="ANUJ THAPA — Developer &amp; Digital Creator">
+    <meta name="description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects including Virtual Campus 3D, Bus Routes Nepal, LPG Cylinder Management System, and PGP Delivery Platform.">
+    <meta name="keywords" content="Anuj Thapa, Software Developer, Full Stack Developer, Three.js, React, Java, TypeScript, Next.js, Pokhara Nepal, GitHub Projects, Virtual Campus 3D, Bus Routes Nepal, LPG Cylinder Management">
+    <meta name="author" content="Anuj Thapa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://thapaanuj.com.np/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thapaanuj.com.np/">
+    <meta property="og:title" content="ANUJ THAPA — Developer &amp; Digital Creator">
+    <meta property="og:description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects.">
+    <meta property="og:image" content="https://thapaanuj.com.np/images/avatar.jpg">
+    <meta property="og:site_name" content="Anuj Thapa Portfolio">
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://thapaanuj.com.np/">
+    <meta name="twitter:title" content="ANUJ THAPA — Developer &amp; Digital Creator">
+    <meta name="twitter:description" content="I build digital experiences, software, and interactive products that turn ideas into reality. Explore my real GitHub projects.">
+    <meta name="twitter:image" content="https://thapaanuj.com.np/images/avatar.jpg">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#07090e">
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://avatars.githubusercontent.com">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Anuj Thapa",
+        "url": "https://thapaanuj.com.np/",
+        "image": "https://thapaanuj.com.np/images/avatar.jpg",
+        "sameAs": [
+            "https://github.com/anujthapa1",
+            "https://linkedin.com/in/anujthapa444",
+            "https://instagram.com/anujthapa444"
+        ],
+        "jobTitle": "Developer & Digital Creator",
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Informatics College Pokhara"
+        },
+        "knowsAbout": [
+            "Software Development",
+            "Full-Stack Web Development",
+            "Three.js",
+            "React",
+            "Java",
+            "TypeScript",
+            "Python",
+            "Cybersecurity",
+            "SEO"
+        ],
+        "email": "mailto:thapapabitraanuj@gmail.com",
+        "telephone": "+9779865117237",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pokhara",
+            "addressCountry": "Nepal"
+        }
+    }
+    </script>
 </head>
 <body>
-
-    <!-- Sticky Navigation -->
-    <header class="header">
+    <!-- Accessibility Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Cursor Spotlight Glow Effect -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+    
+    <!-- Header & Navigation -->
+    <header class="header" role="banner">
         <div class="nav-container">
-            <div class="logo">AT.</div>
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a href="#hero" class="logo" aria-label="Anuj Thapa Home">
+                AT<span>.</span>
+            </a>
+            <nav class="nav" role="navigation" aria-label="Main Navigation">
+                <ul class="nav-links" role="list">
+                    <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                    <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                    <li><a href="#skills" class="nav-link" data-section="skills">Tech Stack</a></li>
+                    <li><a href="#github" class="nav-link" data-section="github">GitHub</a></li>
+                    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
             </nav>
         </div>
     </header>
-
-    <main class="main-content">
-        <!-- Hero section -->
-        <section id="hero" class="hero section hidden">
-            <div class="hero-content text-center">
-                <div class="profile-pic-container">
-                    <img class="profile-pic" src="images/avatar.jpg" alt="Anuj Thapa" onerror="this.src='https://via.placeholder.com/200'">
+    
+    <!-- Main Content -->
+    <main id="main" class="main-content" role="main">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero section reveal" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-orb orb-1"></div>
+                    <div class="hero-orb orb-2"></div>
+                    <div class="hero-orb orb-3"></div>
+                    <div class="profile-ring">
+                        <img class="profile-pic" src="images/avatar.jpg" alt="Anuj Thapa" loading="eager" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/120799096?v=4';">
+                    </div>
                 </div>
-                <h1>ANUJ THAPA</h1>
-                <p class="tagline">Computing Student & Digital Strategist</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Hire me now</a>
-                    <a href="tel:+9779865117237" class="btn btn-outline">Call Me</a>
+                
+                <div class="hero-text">
+                    <p class="hero-greeting">Hello, I'm</p>
+                    <h1 id="hero-title" class="hero-name">ANUJ THAPA</h1>
+                    <p class="hero-tagline">Developer • Digital Creator • Problem Solver</p>
+                    <p class="hero-description">I build digital experiences, software, and interactive products that turn ideas into reality.</p>
+                    
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary" aria-label="Explore my projects">Explore My Work</a>
+                        <a href="#contact" class="btn btn-outline" aria-label="Get in touch">Let's Connect</a>
+                    </div>
+                    
+                    <div class="hero-social" role="list" aria-label="Verified social profiles">
+                        <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile" title="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/anujthapa444" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile" title="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="mailto:thapapabitraanuj@gmail.com" class="social-link" aria-label="Email Anuj Thapa" title="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
+            <div class="scroll-indicator" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </div>
         </section>
-
+        
         <!-- About Section -->
-        <section id="about" class="section hidden">
-            <div class="section-title">
-                <h2>SUMMARY</h2>
+        <section id="about" class="section reveal" aria-labelledby="about-title">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 id="about-title" class="section-title">About Me</h2>
             </div>
-            <div class="about-text text-center">
-                <p>Anuj Thapa is a driven Computing student at Informatics College Pokhara and a versatile digital strategist based in Nepal. Building upon a solid academic foundation in science, Anuj combines his technical proficiency in programming languages like Java, Python, and HTML with a creative flair for web development, digital marketing, and content creation. He is passionate about leveraging his analytical skills and knowledge of online trends to craft engaging digital strategies, build clean and responsive web applications, and drive brand awareness through effective student outreach and digital initiatives.</p>
-            </div>
-        </section>
-
-        <!-- Resume / Education Section -->
-        <section id="resume" class="section hidden">
-            <div class="section-title">
-                <h2>EDUCATION</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="edu-head">
-                            <h3>BSc (Hons) Computing</h3>
-                            <span class="date">Present</span>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-paragraph">I'm a <strong>BSc (Hons) Computing student</strong> at Informatics College Pokhara and a software developer based in Pokhara, Nepal. My work spans full-stack web applications, interactive 3D graphics, Java desktop engineering, and cybersecurity.</p>
+                    <p class="about-paragraph">I believe in engineering practical, production-ready software centered around real user needs. My GitHub portfolio reflects actual codebases — ranging from low-poly multiplayer virtual worlds in Three.js to desktop OOP management systems and civic transport platforms with DoTM legal compliance.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎓</span>
+                            <div>
+                                <strong>Education</strong> BSc (Hons) Computing at Informatics College Pokhara
+                            </div>
                         </div>
-                        <p>Informatics College, Pokhara</p>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">💻</span>
+                            <div>
+                                <strong>Focus</strong> Full-Stack Development, 3D WebGL, Java OOP &amp; TypeScript
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔒</span>
+                            <div>
+                                <strong>Competencies</strong> Cybersecurity Awareness, Secure Auth, Digital Strategy &amp; SEO
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🚀</span>
+                            <div>
+                                <strong>Methodology</strong> Clean Architecture, Verified Features, Built in Public
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="edu-head">
-                            <h3>Higher Secondary School</h3>
-                            <span class="date">2020 - 2022</span>
-                        </div>
-                        <p>Kathmandu Model Secondary School, Kathmandu</p>
-                        <p class="sub-text">Stream : Science</p>
+                
+                <div class="about-stats" role="list" aria-label="Verified GitHub Statistics">
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-count="8">0</span>
+                        <span class="stat-label">Public Repos</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Featured Projects</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Core Languages</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-count="58">0</span>
+                        <span class="stat-label">GitHub Stars</span>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section hidden">
-            <div class="section-title">
-                <h2>SKILLS & LANGUAGES</h2>
+        
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section reveal" aria-labelledby="projects-title">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 id="projects-title" class="section-title">Featured Projects</h2>
             </div>
-            <div class="skills-wrapper">
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <p>HTML (Intermediate) &bull; CSS (Basic) &bull; JavaScript (Basic)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <p>Java (Intermediate) &bull; Python (Intermediate)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <p>GitHub (Intermediate) — version control for collaborative projects</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Operating Systems & Tools</h3>
-                    <p>Terminal/PowerShell &bull; Linux (Ubuntu, Linux Mint, Endeavour OS, Kali) &bull; command-line proficiency</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <p>Nepali (Advanced) &bull; English (Intermediate)</p>
-                </div>
+            <p class="section-subtitle">Curated from my actual GitHub repositories — no filler, no fake projects.</p>
+            
+            <!-- Project Category Filter Buttons -->
+            <div class="project-filters" role="group" aria-label="Filter projects by technology category">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+                <button class="filter-btn" data-filter="3d" aria-pressed="false">3D / WebGL</button>
+                <button class="filter-btn" data-filter="java" aria-pressed="false">Java / Desktop</button>
+                <button class="filter-btn" data-filter="maps" aria-pressed="false">Web / Maps</button>
+                <button class="filter-btn" data-filter="pwa" aria-pressed="false">Web / PWA</button>
+            </div>
+            
+            <!-- Projects Render Container -->
+            <div class="projects-grid" role="list" aria-label="Featured Projects List">
+                <!-- Dynamically populated by script.js from data/projects.js -->
+            </div>
+            
+            <div class="projects-cta">
+                <a href="#all-projects" class="btn btn-outline">View All Repositories Archive ↓</a>
             </div>
         </section>
-
-        <!-- Services Section -->
-        <section id="services" class="section hidden">
-            <div class="section-title">
-                <h2>SERVICES</h2>
+        
+        <!-- All Projects Archive Section -->
+        <section id="all-projects" class="section reveal" aria-labelledby="all-projects-title">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 id="all-projects-title" class="section-title">All Projects Archive</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>Building clean and responsive minimum viable products.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3>Digital Marketing</h3>
-                    <p>Creating digital strategies and online brand awareness.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Content Creation</h3>
-                    <p>Navigating social platforms to engage target audiences.</p>
-                </div>
+            <p class="section-subtitle">Complete archive of public GitHub repositories developed by Anuj Thapa.</p>
+            
+            <div class="projects-list" role="table" aria-label="All projects table">
+                <!-- Dynamically populated by script.js -->
             </div>
         </section>
-
+        
+        <!-- Tech Stack Section -->
+        <section id="skills" class="section reveal" aria-labelledby="skills-title">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 id="skills-title" class="section-title">Tech Stack</h2>
+            </div>
+            <p class="section-subtitle">Technologies I actually use — derived directly from my GitHub repositories.</p>
+            
+            <div class="tech-stack" role="list" aria-label="Categorized Technology Stack">
+                <!-- Dynamically populated by script.js -->
+            </div>
+        </section>
+        
+        <!-- GitHub Built in Public Section -->
+        <section id="github" class="section reveal" aria-labelledby="github-title">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 id="github-title" class="section-title">Built in Public</h2>
+            </div>
+            <p class="section-subtitle">Open-source contributions and development activity hosted on GitHub.</p>
+            
+            <div class="github-profile">
+                <div class="github-avatar-wrapper">
+                    <img src="https://avatars.githubusercontent.com/u/120799096?v=4" alt="Anuj Thapa GitHub Avatar" class="github-avatar" loading="lazy">
+                </div>
+                <div class="github-info">
+                    <h3>@anujthapa1</h3>
+                    <p class="github-bio">BSc (Hons) Computing Student | Aspiring Software Developer • Pokhara, Nepal</p>
+                    
+                    <div class="github-stats" role="list" aria-label="GitHub live stats">
+                        <div class="github-stat" role="listitem">
+                            <span class="github-stat-value">8</span>
+                            <span class="github-stat-label">Public Repos</span>
+                        </div>
+                        <div class="github-stat" role="listitem">
+                            <span class="github-stat-value">58</span>
+                            <span class="github-stat-label">Stars</span>
+                        </div>
+                        <div class="github-stat" role="listitem">
+                            <span class="github-stat-value">1</span>
+                            <span class="github-stat-label">Followers</span>
+                        </div>
+                        <div class="github-stat" role="listitem">
+                            <span class="github-stat-value">3</span>
+                            <span class="github-stat-label">Achievements</span>
+                        </div>
+                    </div>
+                    
+                    <div class="github-languages" role="list" aria-label="Top repository languages">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+                
+                <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="btn btn-primary github-cta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    Explore all repositories →
+                </a>
+            </div>
+        </section>
+        
         <!-- Contact Section -->
-        <section id="contact" class="section hidden">
-            <div class="section-title">
-                <h2>GET IN TOUCH</h2>
+        <section id="contact" class="section reveal" aria-labelledby="contact-title">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 id="contact-title" class="section-title">Let's Build Something.</h2>
             </div>
-            <div class="contact-container">
-                <div class="contact-info text-center">
-                    <p>Simpani, Pokhara, Nepal</p>
-                    <p><a href="mailto:thapapabitraaanuj@gmail.com">thapapabitraaanuj@gmail.com</a></p>
-                    <br>
-                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/anujthapa444" target="_blank">linkedin.com/in/anujthapa444</a></p>
-                    <br>
-                    <p><strong>Instagram:</strong> <a href="https://instagram.com/anujthapa444" target="_blank">instagram.com/anujthapa444</a></p>
+            <p class="section-subtitle">Open to software engineering collaborations, freelance projects, and technical challenges.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Direct Email</span>
+                            <a href="mailto:thapapabitraanuj@gmail.com" class="contact-value">thapapabitraanuj@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Simpani, Pokhara, Nepal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+9779865117237" class="contact-value">+977 9865117237</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-links">
+                    <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub Profile">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            <span>github.com/anujthapa1</span>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/anujthapa444" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn Profile">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            <span>linkedin.com/in/anujthapa444</span>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                    
+                    <a href="https://instagram.com/anujthapa444" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Instagram Profile">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>instagram.com/anujthapa444</span>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer">
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="footer-content">
-            <p>Copyright &copy; 2026 Anuj Thapa. All Rights Reserved.</p>
+            <p class="copyright">© 2026 Anuj Thapa. All Rights Reserved.</p>
+            <p class="footer-note">Crafted with semantic HTML5, modern CSS3 &amp; vanilla JavaScript • Hosted at thapaanuj.com.np</p>
+            <div class="footer-links">
+                <a href="https://github.com/anujthapa1/cvanuj" target="_blank" rel="noopener noreferrer">View Repository Source</a>
+                <span>•</span>
+                <a href="https://github.com/anujthapa1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            </div>
         </div>
     </footer>
-
+    
+    <!-- Accessible Project Detail Modal Case Study -->
+    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalContent" hidden>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close project case study">&times;</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Dynamically rendered by script.js -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project Scripts -->
+    <script src="data/projects.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

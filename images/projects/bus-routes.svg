@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-br" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08101e" />
+      <stop offset="50%" stop-color="#0f1d32" />
+      <stop offset="100%" stop-color="#040913" />
+    </linearGradient>
+    <linearGradient id="nepal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="680" fill="url(#bg-br)" />
+
+  <!-- Top Hero Header -->
+  <g transform="translate(60, 45)">
+    <rect width="1080" height="90" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    <text x="30" y="42" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="bold">🇳🇵 NEPAL LOCAL BUS &amp; SCIENTIFIC FARE GUIDE</text>
+    <text x="30" y="68" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12">Open-Source Route Tracker • DoTM Scientific Fare Engine • Legal Discount Rights</text>
+    
+    <!-- Next.js + TypeScript Badges -->
+    <g transform="translate(860, 28)">
+      <rect width="90" height="32" rx="6" fill="#1e293b" />
+      <text x="45" y="21" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Next.js</text>
+      <rect x="100" width="95" height="32" rx="6" fill="#1e293b" />
+      <text x="147.5" y="21" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">TypeScript</text>
+    </g>
+  </g>
+
+  <!-- Left Main Card: DoTM Scientific Fare Calculator -->
+  <g transform="translate(60, 160)">
+    <rect width="520" height="460" rx="12" fill="#0f172a" stroke="rgba(56,189,248,0.3)" stroke-width="1" />
+    <text x="25" y="38" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="bold">SCIENTIFIC FARE CALCULATOR</text>
+    <text x="25" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Department of Transport Management (DoTM) Directives</text>
+
+    <!-- Distance Slider Mockup -->
+    <g transform="translate(25, 85)">
+      <text x="0" y="16" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="12">Travel Distance (Kilometers)</text>
+      <text x="470" y="16" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="bold" text-anchor="end">12.5 KM</text>
+      
+      <!-- Slider bar -->
+      <rect y="30" width="470" height="8" rx="4" fill="#1e293b" />
+      <rect y="30" width="240" height="8" rx="4" fill="#38bdf8" />
+      <circle cx="240" cy="34" r="10" fill="#38bdf8" stroke="#0f172a" stroke-width="2" />
+    </g>
+
+    <!-- Fare Breakdown Cards -->
+    <g transform="translate(25, 170)">
+      <!-- Standard Full Fare -->
+      <rect width="470" height="65" rx="8" fill="#1e293b" />
+      <text x="20" y="28" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">STANDARD PASSENGER FARE</text>
+      <text x="20" y="50" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="bold">Rs. 32.00</text>
+      <text x="450" y="40" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">Full Rate</text>
+
+      <!-- Student 45% Discount -->
+      <g transform="translate(0, 80)">
+        <rect width="225" height="75" rx="8" fill="#042f2e" stroke="#14b8a6" stroke-width="1" />
+        <text x="15" y="24" fill="#2dd4bf" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">🎓 STUDENT (-45%)</text>
+        <text x="15" y="52" fill="#5eead4" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="bold">Rs. 17.60</text>
+      </g>
+
+      <!-- Senior / Disability 50% Discount -->
+      <g transform="translate(245, 80)">
+        <rect width="225" height="75" rx="8" fill="#3b0764" stroke="#a855f7" stroke-width="1" />
+        <text x="15" y="24" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">♿ SENIOR/PWD (-50%)</text>
+        <text x="15" y="52" fill="#e9d5ff" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="bold">Rs. 16.00</text>
+      </g>
+
+      <!-- Crowdsourced Route Submission Pill -->
+      <g transform="translate(0, 175)">
+        <rect width="470" height="40" rx="6" fill="#090d16" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+        <text x="15" y="25" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11">⚡ Open-Source Crowdsourcing: Submit new routes or stop data</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Main Card: Legal Discount Rights & Helpline -->
+  <g transform="translate(620, 160)">
+    <rect width="520" height="460" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    <text x="25" y="38" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="bold">LEGAL RIGHTS &amp; COMPLIANCE DIRECTIVES</text>
+    <text x="25" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Official Constitution &amp; Government Acts of Nepal</text>
+
+    <!-- Law 1: Senior Citizens Act -->
+    <g transform="translate(25, 85)">
+      <rect width="470" height="85" rx="8" fill="#1e293b" />
+      <text x="20" y="26" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="bold">⚖️ Senior Citizens Act 2063 (Section 9)</text>
+      <text x="20" y="50" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">Mandates 50% discount on public vehicles &amp; at least 2 reserved seats for senior citizens (60+ yrs).</text>
+    </g>
+
+    <!-- Law 2: Rights of Persons with Disabilities Act -->
+    <g transform="translate(25, 185)">
+      <rect width="470" height="85" rx="8" fill="#1e293b" />
+      <text x="20" y="26" fill="#60a5fa" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="bold">♿ Rights of Persons with Disabilities Act 2074</text>
+      <text x="20" y="50" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">Mandates 50% concession on public transport upon presenting red, blue, or yellow disability ID cards.</text>
+    </g>
+
+    <!-- Emergency Helpline & Enforcement Hotline Box -->
+    <g transform="translate(25, 285)">
+      <rect width="470" height="135" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1" />
+      <text x="20" y="28" fill="#fca5a5" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="bold">🚨 WHAT TO DO IF CONCESSION IS DENIED?</text>
+      <text x="20" y="52" fill="#fecaca" font-family="'JetBrains Mono', monospace" font-size="11">If conductors refuse mandatory discounts or overcharge passengers:</text>
+      
+      <g transform="translate(20, 68)">
+        <rect width="200" height="42" rx="6" fill="#7f1d1d" />
+        <text x="100" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">📞 103 (Traffic Police)</text>
+
+        <rect x="220" width="210" height="42" rx="6" fill="#7f1d1d" />
+        <text x="325" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">📞 1148 (National Helpline)</text>
+      </g>
+    </g>
+  </g>
+</svg>
